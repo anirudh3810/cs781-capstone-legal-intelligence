@@ -69,7 +69,7 @@ The later notebook loaders also support selected extracted Kaggle folder layouts
 
 Tokenizers are 32k byte BPE for bases 01/02 and 25k byte BPE for 03/04. Data are official Acts, High Courts, Supreme Court and Tribunal sources. Equal source probabilities are probabilities of **document draws**, not equal token shares. Saved corpus subsets and validation protocols differ, so the losses are not a controlled architecture comparison. Exact numeric configurations are under `phase1/baseXX/saved_config/`.
 
-Run the appropriate Phase 1 notebook in prepare mode first, review its corpus/schema checks, then select the training mode described in its cells. Later sessions may restore the corresponding recovery. The original base-01 architecture and configuration are present, but the original base-01 training notebook was not found in the supplied folder. Bases 02–04 have their original self-contained training notebooks.
+Run the appropriate Phase 1 notebook in prepare mode first, review its corpus/schema checks, then select the training mode described in its cells. Later sessions may restore the corresponding recovery. All four foundation models (bases 01–04) have their self-contained training notebooks present under phase1/notebooks/.
 
 ### Phase 2: legal named entities
 
