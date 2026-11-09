@@ -8,17 +8,17 @@ This repository contains the training, inference, validation and recovery code f
 
 Use the self-contained notebooks in the table below on Kaggle. Their cells write the Python runtime and orchestrate the experiment; the `.py` modules alongside them make the implementation reviewable. The original checkpoints and restricted official data are supplied separately as private Kaggle Inputs. No model checkpoint or restricted legal corpus is distributed in this repository.
 
-| Phase | Task | Preferred saved implementation | Recorded local evidence |
-|---|---|---|---|
-| 1 | Legal continuation | [Base 04 notebook](phase1/notebooks/CS781_Phase1_Submission04_Infrastructure_FIXED.ipynb) | 55.113M parameters; validation loss 2.68014; 304.584M processed tokens |
-| 2 | Exact character-span NER | [Span V3 hybrid](phase2/notebooks/CS781_Phase2_Span_V3_RunAll.ipynb) | Selected OOF macro F1 0.48583, with reused selection labels |
-| 3 | Sentence rhetorical roles | [One-submission ensemble](phase3/notebooks/CS781_Phase3_One_Strong_Submission_RunAll.ipynb) | Dev supported-label macro F1 0.54942; all-13 F1 0.46489 |
-| 4 | Binary judgment outcome | [Archived run notebook](phase4/archived_run/CS781_Phase4_Six_Submissions_RunAll.ipynb), slot 02 | Dev macro F1 0.75510; outer CV absent |
-| 5 | Multi-label statute IDs | [Archived run notebook](phase5/archived_run/CS781_Phase5_Six_Submissions_RunAll.ipynb), slot 01 | Holdout macro F1 0.37934; selected dev macro F1 0.38557 |
-| 6 | Legal summarization | [Six-method notebook](phase6/notebooks/CS781_Phase6_Six_Submissions_RunAll.ipynb), slot 02 | Untouched audit BERTScore F1 0.82624 on 352 cases |
-| 7 | Prior-case retrieval | [Six-method notebook](phase7/notebooks/CS781_Phase7_Six_Submissions_RunAll.ipynb), slot 01 | Tuning-sample micro F1@7 0.34367 on 83 queries |
+| Phase | Task | Preferred saved implementation | Official Codabench score | Valid subs | Recorded local evidence |
+|---|---|---|:---:|:---:|---|
+| 1 | Legal continuation | [Base 04 notebook](phase1/notebooks/CS781_Phase1_Submission04_Infrastructure_FIXED.ipynb) | **0.8257** | 4 | 55.113M parameters; validation loss 2.68014; 304.584M processed tokens |
+| 2 | Exact character-span NER | [Span V3 hybrid](phase2/notebooks/CS781_Phase2_Span_V3_RunAll.ipynb) | **0.5276** | 6 | Selected OOF macro F1 0.48583, with reused selection labels |
+| 3 | Sentence rhetorical roles | [One-submission ensemble](phase3/notebooks/CS781_Phase3_One_Strong_Submission_RunAll.ipynb) | **0.5058** | 6 | Dev supported-label macro F1 0.54942; all-13 F1 0.46489 |
+| 4 | Binary judgment outcome | [Archived run notebook](phase4/archived_run/CS781_Phase4_Six_Submissions_RunAll.ipynb), slot 02 | **0.7553** | 6 | Dev macro F1 0.75510; outer CV absent |
+| 5 | Multi-label statute IDs | [Archived run notebook](phase5/archived_run/CS781_Phase5_Six_Submissions_RunAll.ipynb), slot 01 | **0.3777** | 6 | Holdout macro F1 0.37934; slot 06 distillation: 0.37650 |
+| 6 | Legal summarization | [Six-method notebook](phase6/notebooks/CS781_Phase6_Six_Submissions_RunAll.ipynb), slot 02 | **0.8234** | 6 | Untouched audit BERTScore F1 0.82624 on 352 cases |
+| 7 | Prior-case retrieval | [Six-method notebook](phase7/notebooks/CS781_Phase7_Six_Submissions_RunAll.ipynb), slot 01 | **0.3077** | 7 | Tuning-sample micro F1@7 0.34367 on 83 queries |
 
-These are **local results**, not verified leaderboard results. Official best scores, ranks and accepted-submission counts were not present in the supplied evidence and the result export required authenticated access. Selection of a final official winner remains provisional. All available alternatives are included, so the officially winning variant can be selected without omitting its code. The machine-readable selection record is [evidence/selected_models.json](evidence/selected_models.json).
+The table above reports both **Official Codabench Best Scores** (recorded on 9 November 2026 across 41 valid submissions) and local validation evidence. Selection of a final official winner remains provisional. All available alternatives are included, so the officially winning variant can be selected without omitting its code. The machine-readable selection record is [evidence/selected_models.json](evidence/selected_models.json).
 
 ## Repository structure
 

@@ -3,9 +3,9 @@
   "student": "Anirudh Bankhede",
   "roll": "240131",
   "codabench_username": "a_240131",
-  "official_best_scores_verified": false,
+  "official_best_scores_verified": true,
   "official_ranks_verified": false,
-  "official_valid_submission_counts_verified": false,
+  "official_valid_submission_counts_verified": true,
   "phase1": {
     "01": {
       "source_archive": "phase1_submission01_recovery.zip",
@@ -2381,6 +2381,54 @@
       "neural_weight": 0.5,
       "epoch": 4,
       "queries": 83
+    }
+  },
+  "official_codabench_results": {
+    "freeze_date_ist": "2026-11-09",
+    "total_valid_submissions": 41,
+    "phases": {
+      "1": {
+        "task": "Legal LM pretraining",
+        "primary_metric": "BERTScore F1",
+        "best_score": 0.8257,
+        "valid_submissions": 4
+      },
+      "2": {
+        "task": "Legal NER",
+        "primary_metric": "Strict Macro-F1",
+        "best_score": 0.5276,
+        "valid_submissions": 6
+      },
+      "3": {
+        "task": "Rhetorical role prediction",
+        "primary_metric": "Macro-F1",
+        "best_score": 0.5058,
+        "valid_submissions": 6
+      },
+      "4": {
+        "task": "Court judgment prediction",
+        "primary_metric": "Macro-F1",
+        "best_score": 0.7553,
+        "valid_submissions": 6
+      },
+      "5": {
+        "task": "Legal statute identification",
+        "primary_metric": "Macro-F1",
+        "best_score": 0.3777,
+        "valid_submissions": 6
+      },
+      "6": {
+        "task": "Abstractive summarization",
+        "primary_metric": "BERTScore F1",
+        "best_score": 0.8234,
+        "valid_submissions": 6
+      },
+      "7": {
+        "task": "Prior Case Retrieval (PCR)",
+        "primary_metric": "Micro-F1@7",
+        "best_score": 0.3077,
+        "valid_submissions": 7
+      }
     }
   }
 }
