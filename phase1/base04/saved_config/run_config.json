@@ -1,0 +1,101 @@
+{
+  "experiment_id": "phase1_submission04_efficient_causal",
+  "seed": 781,
+  "execution_mode": "fresh_train",
+  "workspace": "/kaggle/working/CS781_Capstone/phase1/submission_04",
+  "input_root": "/kaggle/input",
+  "train_files": [
+    "train_acts.json",
+    "train_high_courts.json",
+    "train_supreme_court.json",
+    "train_tribunals.json"
+  ],
+  "test_file": "Phase1- Test.json",
+  "test_filename_aliases": [
+    "Phase1- Test.json",
+    "test.json"
+  ],
+  "hf_repo_id": "Exploration-Lab/CS-781-Capstone",
+  "hf_allow_patterns": [
+    "*Phase_1_Pretraining/*",
+    "*Phase-1_Pretraining/*"
+  ],
+  "official_file_overrides": {},
+  "training_schema_overrides": {},
+  "test_schema_override": null,
+  "validation_fraction": 0.05,
+  "source_mixing_ratios": {
+    "acts": 0.25,
+    "high_courts": 0.25,
+    "supreme_court": 0.25,
+    "tribunals": 0.25
+  },
+  "corpus_document_cap_per_source": 10000,
+  "tokenizer_import_path": null,
+  "student_model_source_path": "/kaggle/input/datasets/anirudhbankhede/efficient-casual-lm/efficient_causal_lm.py",
+  "completed_notebook_path": null,
+  "architecture_record": {
+    "family": "efficient causal local/global attention Transformer",
+    "substantive_difference": "bounded local causal attention plus explicitly routed global information, grouped-query key/value sharing and a measured cache footprint",
+    "position_representation": "RoPE applied to attention queries and keys",
+    "tokenizer": "new 25k byte-level BPE trained on the selected official training split only; RoPE is positional encoding",
+    "parameter_range": [
+      50000000,
+      300000000
+    ],
+    "student_model_config": "14 pre-RMSNorm decoder blocks, width 512, 8 query/2 KV heads, head width 64, SwiGLU width 1536, tied 25k token embeddings, RoPE, local window 256 plus every-128th causal global anchor, maximum 1536 positions",
+    "student_exact_parameter_derivation": "For V=25000: embedding V*512=12,800,000; each block attention=656,640, SwiGLU=2,362,880, two RMSNorms=1,024, so 14*3,020,544=42,287,616; final norm=512 and output bias=25,000; total=55,113,128 trainable parameters. Recompute with the actual BPE size.",
+    "student_design_rationale": "A 14-layer 55.1M-parameter model balances depth against T4 throughput; grouped-query sharing reduces KV cache by 4x versus 8 KV heads; local/global causal visibility retains nearby detail and sparse long-range anchors. SDPA runs full-sequence attention efficiently; bounded KV cache accelerates autoregressive generation. This AI-assisted design must be disclosed, not attested as independently student-authored.",
+    "authorship_disclosure": "AI-assisted architecture and implementation; student-owned attestation remains false pending course-approved independent revision"
+  },
+  "innovation_hypothesis": "At equal legal-token budget and 25k BPE, 14-layer causal local/global GQA with RoPE may improve continuation loss or tokens/second relative to the earlier encoder-decoder and prefix-hybrid runs; report measured quality and runtime rather than assume a gain.",
+  "ablation_control": "Compare Submission 03 prefix-hybrid and Submission 02 encoder-decoder only where corpus subset, tokenizer, target words, checkpoint-selection protocol, and actual trained-token counts are documented; otherwise label the comparison observational, not matched.",
+  "student_owned_architecture_attestation": false,
+  "student_configuration_confirmed": false,
+  "full_training_authorized": true,
+  "trained_from_scratch_attestation": false,
+  "decoding": {
+    "target_words": 128,
+    "max_new_tokens": 448,
+    "recovery_rounds": 3,
+    "retry_seed_stride": 100003,
+    "policies": [
+      {
+        "name": "primary_top_k_nucleus",
+        "strategy": "top_k_top_p",
+        "seed": 781,
+        "temperature": 0.85,
+        "top_k": 100,
+        "top_p": 0.92,
+        "repetition_penalty": 1.08,
+        "no_repeat_ngram_size": 4,
+        "min_unique_word_ratio": 0.55,
+        "max_word_fraction": 0.08
+      },
+      {
+        "name": "retry_wider_nucleus",
+        "max_new_tokens": 512,
+        "strategy": "top_k_top_p",
+        "seed": 1781,
+        "temperature": 0.95,
+        "top_k": 160,
+        "top_p": 0.96,
+        "repetition_penalty": 1.12,
+        "no_repeat_ngram_size": 3,
+        "min_unique_word_ratio": 0.5,
+        "max_word_fraction": 0.1
+      },
+      {
+        "name": "completion_fallback_length_only",
+        "strategy": "top_k_top_p",
+        "seed": 1781,
+        "temperature": 0.95,
+        "top_k": 160,
+        "top_p": 0.96,
+        "repetition_penalty": 1.12,
+        "no_repeat_ngram_size": 3,
+        "max_new_tokens": 640
+      }
+    ]
+  }
+}

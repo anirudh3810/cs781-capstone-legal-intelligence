@@ -1,0 +1,48 @@
+{
+  "selection_kind": "provisional_local_evidence",
+  "official_best_confirmation_pending": true,
+  "models": [
+    {
+      "phase": 1,
+      "variant": "04",
+      "basis": "lowest logged validation loss; separate pretraining protocols, official best unverified",
+      "entry": "phase1/notebooks/CS781_Phase1_Submission04_Infrastructure_FIXED.ipynb"
+    },
+    {
+      "phase": 2,
+      "variant": "span_v3_hybrid",
+      "basis": "highest saved selected OOF span macro F1; selection biased",
+      "entry": "phase2/notebooks/CS781_Phase2_Span_V3_RunAll.ipynb"
+    },
+    {
+      "phase": 3,
+      "variant": "one_submission",
+      "basis": "highest saved development supported-label F1; HighF1 cross-validation alternative also included",
+      "entry": "phase3/notebooks/CS781_Phase3_One_Strong_Submission_RunAll.ipynb"
+    },
+    {
+      "phase": 4,
+      "variant": "02",
+      "basis": "highest saved official-dev macro F1; no completed outer folds",
+      "entry": "phase4/archived_run/CS781_Phase4_Six_Submissions_RunAll.ipynb"
+    },
+    {
+      "phase": 5,
+      "variant": "01",
+      "basis": "highest saved holdout and dev macro F1 among archived completed reports",
+      "entry": "phase5/archived_run/CS781_Phase5_Six_Submissions_RunAll.ipynb"
+    },
+    {
+      "phase": 6,
+      "variant": "02",
+      "basis": "archive recommendation, full tuning score and untouched audit evaluation",
+      "entry": "phase6/notebooks/CS781_Phase6_Six_Submissions_RunAll.ipynb"
+    },
+    {
+      "phase": 7,
+      "variant": "01",
+      "basis": "highest saved tuning-sample F1; final audit absent in supplied archive",
+      "entry": "phase7/notebooks/CS781_Phase7_Six_Submissions_RunAll.ipynb"
+    }
+  ]
+}

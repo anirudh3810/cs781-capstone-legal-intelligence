@@ -1,0 +1,37 @@
+{
+  "experiment_id": "phase1_submission02_encoder_decoder",
+  "objective": "teacher-forced target-token cross-entropy conditioned on a bidirectional source encoding",
+  "optimizer": "AdamW",
+  "learning_rate": 0.0003,
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "epsilon": 1e-08,
+  "weight_decay": 0.1,
+  "schedule": "linear_warmup_cosine_decay",
+  "warmup_steps": 600,
+  "min_lr_ratio": 0.1,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 16,
+  "source_length": 512,
+  "target_length": 256,
+  "max_steps": 12000,
+  "samples_per_epoch": 32000,
+  "gradient_clip_norm": 1.0,
+  "gradient_checkpointing": false,
+  "validation_interval": 500,
+  "validation_sequences_per_source": 16,
+  "checkpoint_interval": 250,
+  "recovery_interval": 1000,
+  "num_workers": 0,
+  "source_mixture": {
+    "acts": 0.25,
+    "high_courts": 0.25,
+    "supreme_court": 0.25,
+    "tribunals": 0.25
+  },
+  "source_mixture_unit": "document draws, resampled deterministically per epoch",
+  "seed": 781,
+  "precision_policy": "bf16 if supported; otherwise fp16+GradScaler on CUDA; fp32 on CPU"
+}

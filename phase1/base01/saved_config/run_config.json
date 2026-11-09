@@ -1,0 +1,59 @@
+{
+  "experiment_id": "phase1_submission01_swiglu",
+  "seed": 781,
+  "workspace": "/kaggle/working/CS781_Capstone/phase1/submission_01",
+  "input_root": "/kaggle/input",
+  "train_files": [
+    "train_acts.json",
+    "train_high_courts.json",
+    "train_supreme_court.json",
+    "train_tribunals.json"
+  ],
+  "test_file": "Phase1- Test.json",
+  "test_filename_aliases": [
+    "Phase1- Test.json",
+    "test.json"
+  ],
+  "hf_repo_id": "Exploration-Lab/CS-781-Capstone",
+  "hf_allow_patterns": [
+    "*Phase_1_Pretraining/*",
+    "*Phase-1_Pretraining/*"
+  ],
+  "official_file_overrides": {},
+  "document_id_field": "_record_index",
+  "document_text_field": "text",
+  "test_id_field": "_container_key",
+  "test_prompt_field": "text",
+  "validation_fraction": 0.05,
+  "source_mixing_ratios": {
+    "acts": 0.25,
+    "high_courts": 0.25,
+    "supreme_court": 0.25,
+    "tribunals": 0.25
+  },
+  "architecture_record": {
+    "family": "decoder-only causal Transformer",
+    "intervention": "SwiGLU feed-forward sublayer",
+    "normalization": "Pre-LayerNorm",
+    "position_encoding": "learned absolute embeddings",
+    "embedding_tying": true,
+    "blocks": 8,
+    "hidden_size": 768,
+    "heads": 12,
+    "ffn_hidden_size": 2048,
+    "context_length": 1024,
+    "parameter_range": [
+      50000000,
+      300000000
+    ]
+  },
+  "innovation_hypothesis": "At a matched training-token budget, replacing the conventional GELU feed-forward sublayer with a parameter-matched SwiGLU sublayer will improve fixed-development next-token loss and official continuation metrics for heterogeneous Indian legal text.",
+  "ablation_control": "A parameter-matched Pre-LayerNorm decoder using a conventional GELU feed-forward sublayer; tokenizer, split, source mixture, context, optimizer, schedule, token budget and evaluator remain fixed.",
+  "full_training_authorized": false,
+  "trained_from_scratch_attestation": false,
+  "decoding": {
+    "strategy": "greedy",
+    "target_words": 128,
+    "max_total_new_tokens": 2048
+  }
+}

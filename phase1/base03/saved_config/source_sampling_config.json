@@ -1,0 +1,9 @@
+{
+  "ratios": {
+    "acts": 0.25,
+    "high_courts": 0.25,
+    "supreme_court": 0.25,
+    "tribunals": 0.25
+  },
+  "unit": "document draws"
+}

@@ -1,0 +1,8 @@
+{
+  "completed_step": 12000,
+  "tokens_processed": 74410133,
+  "best_validation_loss": 2.8204562919810314,
+  "actual_precision": "bf16",
+  "latest_checkpoint": "/kaggle/working/CS781_Capstone/phase1/submission_01/checkpoints/checkpoint.latest.pt",
+  "selected_checkpoint": "/kaggle/working/CS781_Capstone/phase1/submission_01/checkpoints/selected_model.pt"
+}

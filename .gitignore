@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+.env
+.env.*
+*.pt
+*.pth
+*.pkl
+*.bin
+*.safetensors
+*.zip
+data/
+official/
+checkpoints/
+tokenizer/
+*.log

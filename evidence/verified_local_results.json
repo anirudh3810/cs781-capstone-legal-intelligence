@@ -1,0 +1,2308 @@
+{
+  "freeze_date_ist": "2026-11-09",
+  "student": "Anirudh Bankhede",
+  "roll": "240131",
+  "codabench_username": "a_240131",
+  "official_best_scores_verified": false,
+  "official_ranks_verified": false,
+  "official_valid_submission_counts_verified": false,
+  "phase1": {
+    "01": {
+      "source_archive": "phase1_submission01_recovery.zip",
+      "training": {
+        "completed_step": 12000,
+        "tokens_processed": 74410133,
+        "best_validation_loss": 2.8204562919810314,
+        "actual_precision": "bf16"
+      },
+      "parameters": 82011648,
+      "corpus": {
+        "documents": 3356594,
+        "sources": {
+          "acts": 18732,
+          "high_courts": 2418301,
+          "supreme_court": 55363,
+          "tribunals": 864198
+        },
+        "whitespace_word_count": 2486313471,
+        "words_by_source": {
+          "high_courts": 1185589167,
+          "supreme_court": 209546392,
+          "acts": 119334421,
+          "tribunals": 971843491
+        },
+        "duplicate_uids": [],
+        "duplicate_content_hashes": [],
+        "original_documents": 3480220,
+        "removed_duplicates": 123626,
+        "requested_sampling_ratios": {
+          "acts": 0.25,
+          "high_courts": 0.25,
+          "supreme_court": 0.25,
+          "tribunals": 0.25
+        },
+        "sampling_unit": "document draws, not token percentages",
+        "training": {
+          "documents": 3188764,
+          "sources": {
+            "acts": 17795,
+            "high_courts": 2297386,
+            "supreme_court": 52595,
+            "tribunals": 820988
+          },
+          "whitespace_word_count": 2363727449,
+          "words_by_source": {
+            "high_courts": 1126830592,
+            "supreme_court": 199194384,
+            "acts": 113543185,
+            "tribunals": 924159288
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        },
+        "validation": {
+          "documents": 167830,
+          "sources": {
+            "acts": 937,
+            "high_courts": 120915,
+            "supreme_court": 2768,
+            "tribunals": 43210
+          },
+          "whitespace_word_count": 122586022,
+          "words_by_source": {
+            "high_courts": 58758575,
+            "supreme_court": 10352008,
+            "acts": 5791236,
+            "tribunals": 47684203
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        }
+      },
+      "config": null
+    },
+    "02": {
+      "source_archive": "phase1_submission02_recovery.zip",
+      "training": {
+        "completed_step": 12000,
+        "tokens_processed": 242874217,
+        "best_validation_loss": 2.9740659664141442,
+        "actual_precision": "bf16"
+      },
+      "parameters": 61342976,
+      "corpus": {
+        "documents": 39921,
+        "sources": {
+          "acts": 9981,
+          "high_courts": 9952,
+          "supreme_court": 9991,
+          "tribunals": 9997
+        },
+        "whitespace_word_count": 116770140,
+        "words_by_source": {
+          "acts": 62185336,
+          "high_courts": 5655189,
+          "supreme_court": 37653600,
+          "tribunals": 11276015
+        },
+        "duplicate_uids": [],
+        "duplicate_content_hashes": [],
+        "selected_before_deduplication": 39995,
+        "removed_exact_duplicates": 74,
+        "requested_sampling_ratios": {
+          "acts": 0.25,
+          "high_courts": 0.25,
+          "supreme_court": 0.25,
+          "tribunals": 0.25
+        },
+        "sampling_unit": "document draws, not token percentages",
+        "official_test_excluded": true,
+        "training": {
+          "documents": 37924,
+          "sources": {
+            "acts": 9482,
+            "high_courts": 9454,
+            "supreme_court": 9491,
+            "tribunals": 9497
+          },
+          "whitespace_word_count": 110872983,
+          "words_by_source": {
+            "acts": 59055987,
+            "high_courts": 5403103,
+            "supreme_court": 35746725,
+            "tribunals": 10667168
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        },
+        "validation": {
+          "documents": 1997,
+          "sources": {
+            "acts": 499,
+            "high_courts": 498,
+            "supreme_court": 500,
+            "tribunals": 500
+          },
+          "whitespace_word_count": 5897157,
+          "words_by_source": {
+            "acts": 3129349,
+            "high_courts": 252086,
+            "supreme_court": 1906875,
+            "tribunals": 608847
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        }
+      },
+      "config": {
+        "experiment_id": "phase1_submission02_encoder_decoder",
+        "objective": "teacher-forced target-token cross-entropy conditioned on a bidirectional source encoding",
+        "optimizer": "AdamW",
+        "learning_rate": 0.0003,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "epsilon": 1e-08,
+        "weight_decay": 0.1,
+        "schedule": "linear_warmup_cosine_decay",
+        "warmup_steps": 600,
+        "min_lr_ratio": 0.1,
+        "batch_size": 2,
+        "gradient_accumulation_steps": 16,
+        "source_length": 512,
+        "target_length": 256,
+        "max_steps": 12000,
+        "samples_per_epoch": 32000,
+        "gradient_clip_norm": 1.0,
+        "gradient_checkpointing": false,
+        "validation_interval": 500,
+        "validation_sequences_per_source": 16,
+        "checkpoint_interval": 250,
+        "recovery_interval": 1000,
+        "num_workers": 0,
+        "source_mixture": {
+          "acts": 0.25,
+          "high_courts": 0.25,
+          "supreme_court": 0.25,
+          "tribunals": 0.25
+        },
+        "source_mixture_unit": "document draws, resampled deterministically per epoch",
+        "seed": 781,
+        "precision_policy": "bf16 if supported; otherwise fp16+GradScaler on CUDA; fp32 on CPU"
+      }
+    },
+    "03": {
+      "source_archive": "phase1_submission03_recovery.zip",
+      "training": {
+        "completed_step": 10000,
+        "tokens_processed": 203014261,
+        "best_validation_loss": 2.988549116033418,
+        "actual_precision": "fp16",
+        "parallelism": "data_parallel",
+        "per_gpu_batch_size": 4,
+        "optimizer_backend": "fused"
+      },
+      "parameters": 52206376,
+      "corpus": {
+        "documents": 31946,
+        "sources": {
+          "acts": 7989,
+          "high_courts": 7967,
+          "supreme_court": 7991,
+          "tribunals": 7999
+        },
+        "whitespace_word_count": 93747592,
+        "words_by_source": {
+          "acts": 50405335,
+          "high_courts": 4541864,
+          "supreme_court": 29721648,
+          "tribunals": 9078745
+        },
+        "duplicate_uids": [],
+        "duplicate_content_hashes": [],
+        "selected_before_deduplication": 31995,
+        "removed_exact_duplicates": 49,
+        "requested_sampling_ratios": {
+          "acts": 0.25,
+          "high_courts": 0.25,
+          "supreme_court": 0.25,
+          "tribunals": 0.25
+        },
+        "sampling_unit": "document draws, not token percentages",
+        "official_test_excluded": true,
+        "training": {
+          "documents": 30349,
+          "sources": {
+            "acts": 7590,
+            "high_courts": 7569,
+            "supreme_court": 7591,
+            "tribunals": 7599
+          },
+          "whitespace_word_count": 88642951,
+          "words_by_source": {
+            "acts": 47446744,
+            "high_courts": 4333773,
+            "supreme_court": 28216955,
+            "tribunals": 8645479
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        },
+        "validation": {
+          "documents": 1597,
+          "sources": {
+            "acts": 399,
+            "high_courts": 398,
+            "supreme_court": 400,
+            "tribunals": 400
+          },
+          "whitespace_word_count": 5104641,
+          "words_by_source": {
+            "acts": 2958591,
+            "high_courts": 208091,
+            "supreme_court": 1504693,
+            "tribunals": 433266
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        }
+      },
+      "config": {
+        "experiment_id": "phase1_submission03_prefix_hybrid",
+        "objective": "target-token cross-entropy under a bidirectional-prefix/causal-continuation mask",
+        "optimizer": "AdamW",
+        "learning_rate": 0.00025,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "epsilon": 1e-08,
+        "weight_decay": 0.1,
+        "schedule": "linear_warmup_cosine_decay",
+        "warmup_steps": 500,
+        "min_lr_ratio": 0.1,
+        "batch_size": 8,
+        "per_gpu_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "source_length": 512,
+        "target_length": 256,
+        "max_steps": 10000,
+        "samples_per_epoch": 32000,
+        "gradient_clip_norm": 1.0,
+        "gradient_checkpointing": false,
+        "validation_interval": 500,
+        "validation_sequences_per_source": 16,
+        "parallelism": "data_parallel",
+        "gpu_ids": [
+          0,
+          1
+        ],
+        "checkpoint_interval": 500,
+        "recovery_interval": 1000,
+        "num_workers": 0,
+        "source_mixture": {
+          "acts": 0.25,
+          "high_courts": 0.25,
+          "supreme_court": 0.25,
+          "tribunals": 0.25
+        },
+        "source_mixture_unit": "document draws, resampled deterministically per epoch",
+        "seed": 781,
+        "precision_policy": "native bf16 on SM80+; fp16+GradScaler on T4/CUDA; fp32 on CPU"
+      }
+    },
+    "04": {
+      "source_archive": "phase1_submission04_recovery.zip",
+      "training": {
+        "completed_step": 15000,
+        "target_step": 15000,
+        "training_complete": true,
+        "session_elapsed_seconds": 23821.629410543,
+        "tokens_processed": 304583885,
+        "best_validation_loss": 2.6801365038214895,
+        "actual_precision": "fp16",
+        "parallelism": "data_parallel",
+        "per_gpu_batch_size": 4,
+        "optimizer_backend": "fused"
+      },
+      "parameters": 55113128,
+      "corpus": {
+        "documents": 39921,
+        "sources": {
+          "acts": 9981,
+          "high_courts": 9952,
+          "supreme_court": 9991,
+          "tribunals": 9997
+        },
+        "whitespace_word_count": 116770140,
+        "words_by_source": {
+          "acts": 62185336,
+          "high_courts": 5655189,
+          "supreme_court": 37653600,
+          "tribunals": 11276015
+        },
+        "duplicate_uids": [],
+        "duplicate_content_hashes": [],
+        "selected_before_deduplication": 39995,
+        "removed_exact_duplicates": 74,
+        "requested_sampling_ratios": {
+          "acts": 0.25,
+          "high_courts": 0.25,
+          "supreme_court": 0.25,
+          "tribunals": 0.25
+        },
+        "sampling_unit": "document draws, not token percentages",
+        "official_test_excluded": true,
+        "training": {
+          "documents": 37924,
+          "sources": {
+            "acts": 9482,
+            "high_courts": 9454,
+            "supreme_court": 9491,
+            "tribunals": 9497
+          },
+          "whitespace_word_count": 110872983,
+          "words_by_source": {
+            "acts": 59055987,
+            "high_courts": 5403103,
+            "supreme_court": 35746725,
+            "tribunals": 10667168
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        },
+        "validation": {
+          "documents": 1997,
+          "sources": {
+            "acts": 499,
+            "high_courts": 498,
+            "supreme_court": 500,
+            "tribunals": 500
+          },
+          "whitespace_word_count": 5897157,
+          "words_by_source": {
+            "acts": 3129349,
+            "high_courts": 252086,
+            "supreme_court": 1906875,
+            "tribunals": 608847
+          },
+          "duplicate_uids": [],
+          "duplicate_content_hashes": []
+        }
+      },
+      "config": {
+        "experiment_id": "phase1_submission04_efficient_causal",
+        "objective": "target-token cross-entropy under a strictly causal local/global attention",
+        "optimizer": "AdamW",
+        "learning_rate": 0.00025,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "epsilon": 1e-08,
+        "weight_decay": 0.1,
+        "schedule": "linear_warmup_cosine_decay",
+        "warmup_steps": 500,
+        "min_lr_ratio": 0.1,
+        "batch_size": 8,
+        "per_gpu_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "source_length": 512,
+        "target_length": 256,
+        "max_steps": 15000,
+        "samples_per_epoch": 32000,
+        "gradient_clip_norm": 1.0,
+        "gradient_checkpointing": true,
+        "validation_interval": 1000,
+        "validation_sequences_per_source": 16,
+        "parallelism": "data_parallel",
+        "gpu_ids": [
+          0,
+          1
+        ],
+        "checkpoint_interval": 500,
+        "recovery_interval": 1000,
+        "max_session_seconds": 33300,
+        "num_workers": 0,
+        "source_mixture": {
+          "acts": 0.25,
+          "high_courts": 0.25,
+          "supreme_court": 0.25,
+          "tribunals": 0.25
+        },
+        "source_mixture_unit": "document draws, resampled deterministically per epoch",
+        "seed": 781,
+        "precision_policy": "native bf16 on SM80+; fp16+GradScaler on T4/CUDA; fp32 on CPU"
+      }
+    }
+  },
+  "phase2": {
+    "source_archive": "CS781_Phase2_Span_V3_Report.zip",
+    "public_labeled_documents": 70,
+    "official_train_documents": 35,
+    "official_dev_documents": 35,
+    "test_documents": 35,
+    "v2_oof": 0.45297112108361587,
+    "selection": {
+      "status": "complete",
+      "config_hash": "7b197f9762dea8662db8978e77ce115ea3e992fe715521cf81699f8e25861f80",
+      "baseline_v2_reranked_oof": 0.45297112108361587,
+      "v2_raw_calibrated_oof": 0.4503699605156289,
+      "v3_default_oof": 0.464659206626904,
+      "v3_calibrated_oof": 0.4753586643602976,
+      "v3_reranker_default_oof": 0.44528577790025525,
+      "v3_reranker_calibrated_oof": 0.45672765916469577,
+      "hybrid_oof": 0.48582884848167085,
+      "chosen_method": "hybrid",
+      "chosen_oof": 0.48582884848167085,
+      "v3_thresholds": {
+        "APP": 0.4,
+        "RESP": 0.2,
+        "A.COUNSEL": 0.8,
+        "R.COUNSEL": 0.4,
+        "JUDGE": 0.7,
+        "WIT": 0.7,
+        "AUTH": 0.7,
+        "COURT": 0.8,
+        "STAT": 0.5,
+        "PREC": 0.6,
+        "DATE": 0.8,
+        "CASENO": 0.8
+      },
+      "v3_reranker_thresholds": {
+        "APP": 0.5,
+        "RESP": 0.7,
+        "A.COUNSEL": 0.5,
+        "R.COUNSEL": 0.5,
+        "JUDGE": 0.7,
+        "WIT": 0.5,
+        "AUTH": 0.5,
+        "COURT": 0.7,
+        "STAT": 0.7,
+        "PREC": 0.5,
+        "DATE": 0.6,
+        "CASENO": 0.7
+      },
+      "hybrid_label_sources": {
+        "APP": "v3_raw",
+        "RESP": "v3_raw",
+        "A.COUNSEL": "v3_reranked",
+        "R.COUNSEL": "v2_reranked",
+        "JUDGE": "v3_reranked",
+        "WIT": "v3_raw",
+        "AUTH": "v3_raw",
+        "COURT": "v2_reranked",
+        "STAT": "v2_reranked",
+        "PREC": "v3_raw",
+        "DATE": "v2_reranked",
+        "CASENO": "v2_reranked"
+      },
+      "hybrid_source_thresholds": {
+        "v2_raw": {
+          "APP": 0.45,
+          "RESP": 0.8,
+          "A.COUNSEL": 0.7,
+          "R.COUNSEL": 0.45,
+          "JUDGE": 0.7,
+          "WIT": 0.8,
+          "AUTH": 0.8,
+          "COURT": 0.8,
+          "STAT": 0.7,
+          "PREC": 0.7,
+          "DATE": 0.8,
+          "CASENO": 0.8
+        },
+        "v2_reranked": {
+          "APP": 0.4,
+          "RESP": 0.45,
+          "A.COUNSEL": 0.45,
+          "R.COUNSEL": 0.6,
+          "JUDGE": 0.7,
+          "WIT": 0.5,
+          "AUTH": 0.6,
+          "COURT": 0.8,
+          "STAT": 0.5,
+          "PREC": 0.5,
+          "DATE": 0.6,
+          "CASENO": 0.6
+        },
+        "v3_raw": {
+          "APP": 0.4,
+          "RESP": 0.2,
+          "A.COUNSEL": 0.8,
+          "R.COUNSEL": 0.4,
+          "JUDGE": 0.7,
+          "WIT": 0.7,
+          "AUTH": 0.7,
+          "COURT": 0.8,
+          "STAT": 0.5,
+          "PREC": 0.6,
+          "DATE": 0.8,
+          "CASENO": 0.8
+        },
+        "v3_reranked": {
+          "APP": 0.5,
+          "RESP": 0.7,
+          "A.COUNSEL": 0.5,
+          "R.COUNSEL": 0.5,
+          "JUDGE": 0.7,
+          "WIT": 0.5,
+          "AUTH": 0.5,
+          "COURT": 0.7,
+          "STAT": 0.7,
+          "PREC": 0.5,
+          "DATE": 0.6,
+          "CASENO": 0.7
+        }
+      },
+      "fold_checks": [
+        {
+          "fold": 0,
+          "v2_reranked": 0.42204370108505834,
+          "v3_raw": 0.4514692023645866,
+          "v3_reranked": 0.4332057576232178,
+          "hybrid": 0.46158192868026654
+        },
+        {
+          "fold": 1,
+          "v2_reranked": 0.4597612605879011,
+          "v3_raw": 0.47027404821672075,
+          "v3_reranked": 0.44624760635123656,
+          "hybrid": 0.49269527358833104
+        },
+        {
+          "fold": 2,
+          "v2_reranked": 0.4772346750047116,
+          "v3_raw": 0.5094517984083572,
+          "v3_reranked": 0.49627353579766326,
+          "hybrid": 0.5108416560715359
+        }
+      ],
+      "per_label": {
+        "v2_raw": {
+          "APP": {
+            "gold": 407,
+            "predicted": 534,
+            "tp": 90,
+            "precision": 0.16853932584269662,
+            "recall": 0.22113022113022113,
+            "f1": 0.1912858660998937,
+            "exact_candidate": 272,
+            "exact_candidate_recall": 0.6683046683046683
+          },
+          "RESP": {
+            "gold": 381,
+            "predicted": 149,
+            "tp": 45,
+            "precision": 0.30201342281879195,
+            "recall": 0.11811023622047244,
+            "f1": 0.169811320754717,
+            "exact_candidate": 244,
+            "exact_candidate_recall": 0.6404199475065617
+          },
+          "A.COUNSEL": {
+            "gold": 195,
+            "predicted": 167,
+            "tp": 47,
+            "precision": 0.281437125748503,
+            "recall": 0.24102564102564103,
+            "f1": 0.25966850828729277,
+            "exact_candidate": 166,
+            "exact_candidate_recall": 0.8512820512820513
+          },
+          "R.COUNSEL": {
+            "gold": 184,
+            "predicted": 179,
+            "tp": 58,
+            "precision": 0.3240223463687151,
+            "recall": 0.31521739130434784,
+            "f1": 0.31955922865013775,
+            "exact_candidate": 170,
+            "exact_candidate_recall": 0.9239130434782609
+          },
+          "JUDGE": {
+            "gold": 245,
+            "predicted": 251,
+            "tp": 125,
+            "precision": 0.49800796812749004,
+            "recall": 0.5102040816326531,
+            "f1": 0.5040322580645162,
+            "exact_candidate": 224,
+            "exact_candidate_recall": 0.9142857142857143
+          },
+          "WIT": {
+            "gold": 187,
+            "predicted": 109,
+            "tp": 34,
+            "precision": 0.3119266055045872,
+            "recall": 0.18181818181818182,
+            "f1": 0.22972972972972971,
+            "exact_candidate": 149,
+            "exact_candidate_recall": 0.7967914438502673
+          },
+          "AUTH": {
+            "gold": 1003,
+            "predicted": 1180,
+            "tp": 460,
+            "precision": 0.3898305084745763,
+            "recall": 0.45862412761714855,
+            "f1": 0.4214383875400824,
+            "exact_candidate": 889,
+            "exact_candidate_recall": 0.8863409770687937
+          },
+          "COURT": {
+            "gold": 1013,
+            "predicted": 1205,
+            "tp": 825,
+            "precision": 0.6846473029045643,
+            "recall": 0.8144126357354393,
+            "f1": 0.7439134355275023,
+            "exact_candidate": 985,
+            "exact_candidate_recall": 0.9723593287265548
+          },
+          "STAT": {
+            "gold": 1260,
+            "predicted": 1394,
+            "tp": 926,
+            "precision": 0.6642754662840746,
+            "recall": 0.734920634920635,
+            "f1": 0.6978146194423512,
+            "exact_candidate": 1195,
+            "exact_candidate_recall": 0.9484126984126984
+          },
+          "PREC": {
+            "gold": 1183,
+            "predicted": 1059,
+            "tp": 415,
+            "precision": 0.3918791312559018,
+            "recall": 0.3508030431107354,
+            "f1": 0.3702051739518287,
+            "exact_candidate": 912,
+            "exact_candidate_recall": 0.7709213863060017
+          },
+          "DATE": {
+            "gold": 1575,
+            "predicted": 1520,
+            "tp": 1430,
+            "precision": 0.9407894736842105,
+            "recall": 0.9079365079365079,
+            "f1": 0.9240710823909531,
+            "exact_candidate": 1539,
+            "exact_candidate_recall": 0.9771428571428571
+          },
+          "CASENO": {
+            "gold": 760,
+            "predicted": 783,
+            "tp": 442,
+            "precision": 0.5644955300127714,
+            "recall": 0.5815789473684211,
+            "f1": 0.5729099157485419,
+            "exact_candidate": 682,
+            "exact_candidate_recall": 0.8973684210526316
+          }
+        },
+        "v2_reranked": {
+          "APP": {
+            "gold": 407,
+            "predicted": 654,
+            "tp": 68,
+            "precision": 0.10397553516819572,
+            "recall": 0.16707616707616707,
+            "f1": 0.12818096135721016,
+            "exact_candidate": 278,
+            "exact_candidate_recall": 0.683046683046683
+          },
+          "RESP": {
+            "gold": 381,
+            "predicted": 604,
+            "tp": 65,
+            "precision": 0.1076158940397351,
+            "recall": 0.17060367454068243,
+            "f1": 0.1319796954314721,
+            "exact_candidate": 247,
+            "exact_candidate_recall": 0.6482939632545932
+          },
+          "A.COUNSEL": {
+            "gold": 195,
+            "predicted": 199,
+            "tp": 64,
+            "precision": 0.32160804020100503,
+            "recall": 0.3282051282051282,
+            "f1": 0.32487309644670054,
+            "exact_candidate": 166,
+            "exact_candidate_recall": 0.8512820512820513
+          },
+          "R.COUNSEL": {
+            "gold": 184,
+            "predicted": 202,
+            "tp": 73,
+            "precision": 0.3613861386138614,
+            "recall": 0.3967391304347826,
+            "f1": 0.37823834196891193,
+            "exact_candidate": 171,
+            "exact_candidate_recall": 0.9293478260869565
+          },
+          "JUDGE": {
+            "gold": 245,
+            "predicted": 207,
+            "tp": 128,
+            "precision": 0.6183574879227053,
+            "recall": 0.5224489795918368,
+            "f1": 0.5663716814159291,
+            "exact_candidate": 222,
+            "exact_candidate_recall": 0.9061224489795918
+          },
+          "WIT": {
+            "gold": 187,
+            "predicted": 339,
+            "tp": 52,
+            "precision": 0.15339233038348082,
+            "recall": 0.27807486631016043,
+            "f1": 0.19771863117870722,
+            "exact_candidate": 152,
+            "exact_candidate_recall": 0.8128342245989305
+          },
+          "AUTH": {
+            "gold": 1003,
+            "predicted": 1636,
+            "tp": 346,
+            "precision": 0.2114914425427873,
+            "recall": 0.34496510468594216,
+            "f1": 0.262220538082607,
+            "exact_candidate": 890,
+            "exact_candidate_recall": 0.8873379860418744
+          },
+          "COURT": {
+            "gold": 1013,
+            "predicted": 1018,
+            "tp": 773,
+            "precision": 0.7593320235756386,
+            "recall": 0.7630799605133267,
+            "f1": 0.7612013786312161,
+            "exact_candidate": 973,
+            "exact_candidate_recall": 0.9605133267522211
+          },
+          "STAT": {
+            "gold": 1260,
+            "predicted": 1362,
+            "tp": 982,
+            "precision": 0.7209985315712188,
+            "recall": 0.7793650793650794,
+            "f1": 0.7490465293668956,
+            "exact_candidate": 1180,
+            "exact_candidate_recall": 0.9365079365079365
+          },
+          "PREC": {
+            "gold": 1183,
+            "predicted": 1095,
+            "tp": 393,
+            "precision": 0.3589041095890411,
+            "recall": 0.3322062552831784,
+            "f1": 0.3450395083406497,
+            "exact_candidate": 895,
+            "exact_candidate_recall": 0.7565511411665258
+          },
+          "DATE": {
+            "gold": 1575,
+            "predicted": 1533,
+            "tp": 1493,
+            "precision": 0.9739073711676451,
+            "recall": 0.947936507936508,
+            "f1": 0.9607464607464609,
+            "exact_candidate": 1528,
+            "exact_candidate_recall": 0.9701587301587301
+          },
+          "CASENO": {
+            "gold": 760,
+            "predicted": 605,
+            "tp": 430,
+            "precision": 0.7107438016528925,
+            "recall": 0.5657894736842105,
+            "f1": 0.63003663003663,
+            "exact_candidate": 669,
+            "exact_candidate_recall": 0.8802631578947369
+          }
+        },
+        "v3_raw": {
+          "APP": {
+            "gold": 407,
+            "predicted": 355,
+            "tp": 84,
+            "precision": 0.23661971830985915,
+            "recall": 0.20638820638820637,
+            "f1": 0.2204724409448819,
+            "exact_candidate": 268,
+            "exact_candidate_recall": 0.6584766584766585
+          },
+          "RESP": {
+            "gold": 381,
+            "predicted": 337,
+            "tp": 69,
+            "precision": 0.20474777448071216,
+            "recall": 0.18110236220472442,
+            "f1": 0.19220055710306408,
+            "exact_candidate": 245,
+            "exact_candidate_recall": 0.6430446194225722
+          },
+          "A.COUNSEL": {
+            "gold": 195,
+            "predicted": 162,
+            "tp": 55,
+            "precision": 0.3395061728395062,
+            "recall": 0.28205128205128205,
+            "f1": 0.30812324929971985,
+            "exact_candidate": 167,
+            "exact_candidate_recall": 0.8564102564102564
+          },
+          "R.COUNSEL": {
+            "gold": 184,
+            "predicted": 166,
+            "tp": 61,
+            "precision": 0.3674698795180723,
+            "recall": 0.33152173913043476,
+            "f1": 0.3485714285714286,
+            "exact_candidate": 169,
+            "exact_candidate_recall": 0.9184782608695652
+          },
+          "JUDGE": {
+            "gold": 245,
+            "predicted": 251,
+            "tp": 140,
+            "precision": 0.5577689243027888,
+            "recall": 0.5714285714285714,
+            "f1": 0.564516129032258,
+            "exact_candidate": 230,
+            "exact_candidate_recall": 0.9387755102040817
+          },
+          "WIT": {
+            "gold": 187,
+            "predicted": 105,
+            "tp": 42,
+            "precision": 0.4,
+            "recall": 0.22459893048128343,
+            "f1": 0.2876712328767123,
+            "exact_candidate": 145,
+            "exact_candidate_recall": 0.7754010695187166
+          },
+          "AUTH": {
+            "gold": 1003,
+            "predicted": 1129,
+            "tp": 463,
+            "precision": 0.41009743135518156,
+            "recall": 0.46161515453639085,
+            "f1": 0.43433395872420266,
+            "exact_candidate": 858,
+            "exact_candidate_recall": 0.8554336989032901
+          },
+          "COURT": {
+            "gold": 1013,
+            "predicted": 1130,
+            "tp": 831,
+            "precision": 0.7353982300884956,
+            "recall": 0.8203356367226061,
+            "f1": 0.7755482967802148,
+            "exact_candidate": 983,
+            "exact_candidate_recall": 0.9703849950641659
+          },
+          "STAT": {
+            "gold": 1260,
+            "predicted": 1396,
+            "tp": 917,
+            "precision": 0.6568767908309455,
+            "recall": 0.7277777777777777,
+            "f1": 0.690512048192771,
+            "exact_candidate": 1200,
+            "exact_candidate_recall": 0.9523809523809523
+          },
+          "PREC": {
+            "gold": 1183,
+            "predicted": 1089,
+            "tp": 464,
+            "precision": 0.426078971533517,
+            "recall": 0.39222316145393066,
+            "f1": 0.4084507042253521,
+            "exact_candidate": 926,
+            "exact_candidate_recall": 0.7827557058326289
+          },
+          "DATE": {
+            "gold": 1575,
+            "predicted": 1516,
+            "tp": 1437,
+            "precision": 0.9478891820580475,
+            "recall": 0.9123809523809524,
+            "f1": 0.9297961824652218,
+            "exact_candidate": 1540,
+            "exact_candidate_recall": 0.9777777777777777
+          },
+          "CASENO": {
+            "gold": 760,
+            "predicted": 725,
+            "tp": 404,
+            "precision": 0.5572413793103448,
+            "recall": 0.531578947368421,
+            "f1": 0.544107744107744,
+            "exact_candidate": 688,
+            "exact_candidate_recall": 0.9052631578947369
+          }
+        },
+        "v3_reranked": {
+          "APP": {
+            "gold": 407,
+            "predicted": 661,
+            "tp": 70,
+            "precision": 0.1059001512859304,
+            "recall": 0.171990171990172,
+            "f1": 0.13108614232209737,
+            "exact_candidate": 271,
+            "exact_candidate_recall": 0.6658476658476659
+          },
+          "RESP": {
+            "gold": 381,
+            "predicted": 411,
+            "tp": 62,
+            "precision": 0.15085158150851583,
+            "recall": 0.16272965879265092,
+            "f1": 0.15656565656565657,
+            "exact_candidate": 251,
+            "exact_candidate_recall": 0.6587926509186351
+          },
+          "A.COUNSEL": {
+            "gold": 195,
+            "predicted": 201,
+            "tp": 74,
+            "precision": 0.3681592039800995,
+            "recall": 0.37948717948717947,
+            "f1": 0.3737373737373737,
+            "exact_candidate": 168,
+            "exact_candidate_recall": 0.8615384615384616
+          },
+          "R.COUNSEL": {
+            "gold": 184,
+            "predicted": 271,
+            "tp": 80,
+            "precision": 0.2952029520295203,
+            "recall": 0.43478260869565216,
+            "f1": 0.3516483516483516,
+            "exact_candidate": 171,
+            "exact_candidate_recall": 0.9293478260869565
+          },
+          "JUDGE": {
+            "gold": 245,
+            "predicted": 223,
+            "tp": 148,
+            "precision": 0.6636771300448431,
+            "recall": 0.6040816326530613,
+            "f1": 0.6324786324786326,
+            "exact_candidate": 227,
+            "exact_candidate_recall": 0.926530612244898
+          },
+          "WIT": {
+            "gold": 187,
+            "predicted": 402,
+            "tp": 47,
+            "precision": 0.11691542288557213,
+            "recall": 0.25133689839572193,
+            "f1": 0.15959252971137522,
+            "exact_candidate": 153,
+            "exact_candidate_recall": 0.8181818181818182
+          },
+          "AUTH": {
+            "gold": 1003,
+            "predicted": 2319,
+            "tp": 411,
+            "precision": 0.17723156532988357,
+            "recall": 0.4097706879361914,
+            "f1": 0.24744130042143286,
+            "exact_candidate": 885,
+            "exact_candidate_recall": 0.8823529411764706
+          },
+          "COURT": {
+            "gold": 1013,
+            "predicted": 1155,
+            "tp": 809,
+            "precision": 0.7004329004329004,
+            "recall": 0.7986179664363278,
+            "f1": 0.746309963099631,
+            "exact_candidate": 973,
+            "exact_candidate_recall": 0.9605133267522211
+          },
+          "STAT": {
+            "gold": 1260,
+            "predicted": 1269,
+            "tp": 925,
+            "precision": 0.7289204097714737,
+            "recall": 0.7341269841269841,
+            "f1": 0.7315144325820482,
+            "exact_candidate": 1187,
+            "exact_candidate_recall": 0.942063492063492
+          },
+          "PREC": {
+            "gold": 1183,
+            "predicted": 1201,
+            "tp": 434,
+            "precision": 0.3613655287260616,
+            "recall": 0.3668639053254438,
+            "f1": 0.3640939597315436,
+            "exact_candidate": 916,
+            "exact_candidate_recall": 0.7743026204564666
+          },
+          "DATE": {
+            "gold": 1575,
+            "predicted": 1544,
+            "tp": 1494,
+            "precision": 0.9676165803108808,
+            "recall": 0.9485714285714286,
+            "f1": 0.9579993587688361,
+            "exact_candidate": 1533,
+            "exact_candidate_recall": 0.9733333333333334
+          },
+          "CASENO": {
+            "gold": 760,
+            "predicted": 542,
+            "tp": 409,
+            "precision": 0.7546125461254612,
+            "recall": 0.5381578947368421,
+            "f1": 0.6282642089093702,
+            "exact_candidate": 679,
+            "exact_candidate_recall": 0.8934210526315789
+          }
+        }
+      },
+      "per_label_hybrid": {
+        "APP": {
+          "gold": 407,
+          "predicted": 342,
+          "tp": 76,
+          "precision": 0.2222222222222222,
+          "recall": 0.18673218673218672,
+          "f1": 0.20293724966622162,
+          "exact_candidate": 111,
+          "exact_candidate_recall": 0.2727272727272727
+        },
+        "RESP": {
+          "gold": 381,
+          "predicted": 376,
+          "tp": 71,
+          "precision": 0.18882978723404256,
+          "recall": 0.18635170603674542,
+          "f1": 0.18758256274768828,
+          "exact_candidate": 122,
+          "exact_candidate_recall": 0.32020997375328086
+        },
+        "A.COUNSEL": {
+          "gold": 195,
+          "predicted": 366,
+          "tp": 100,
+          "precision": 0.273224043715847,
+          "recall": 0.5128205128205128,
+          "f1": 0.35650623885918004,
+          "exact_candidate": 131,
+          "exact_candidate_recall": 0.6717948717948717
+        },
+        "R.COUNSEL": {
+          "gold": 184,
+          "predicted": 128,
+          "tp": 49,
+          "precision": 0.3828125,
+          "recall": 0.266304347826087,
+          "f1": 0.31410256410256415,
+          "exact_candidate": 104,
+          "exact_candidate_recall": 0.5652173913043478
+        },
+        "JUDGE": {
+          "gold": 245,
+          "predicted": 211,
+          "tp": 132,
+          "precision": 0.6255924170616114,
+          "recall": 0.5387755102040817,
+          "f1": 0.5789473684210527,
+          "exact_candidate": 150,
+          "exact_candidate_recall": 0.6122448979591837
+        },
+        "WIT": {
+          "gold": 187,
+          "predicted": 94,
+          "tp": 39,
+          "precision": 0.4148936170212766,
+          "recall": 0.20855614973262032,
+          "f1": 0.2775800711743772,
+          "exact_candidate": 54,
+          "exact_candidate_recall": 0.2887700534759358
+        },
+        "AUTH": {
+          "gold": 1003,
+          "predicted": 1114,
+          "tp": 460,
+          "precision": 0.4129263913824057,
+          "recall": 0.45862412761714855,
+          "f1": 0.43457723193197917,
+          "exact_candidate": 503,
+          "exact_candidate_recall": 0.5014955134596212
+        },
+        "COURT": {
+          "gold": 1013,
+          "predicted": 995,
+          "tp": 759,
+          "precision": 0.7628140703517587,
+          "recall": 0.7492596248766041,
+          "f1": 0.7559760956175298,
+          "exact_candidate": 777,
+          "exact_candidate_recall": 0.7670286278381047
+        },
+        "STAT": {
+          "gold": 1260,
+          "predicted": 1398,
+          "tp": 987,
+          "precision": 0.7060085836909872,
+          "recall": 0.7833333333333333,
+          "f1": 0.7426636568848758,
+          "exact_candidate": 1010,
+          "exact_candidate_recall": 0.8015873015873016
+        },
+        "PREC": {
+          "gold": 1183,
+          "predicted": 1108,
+          "tp": 453,
+          "precision": 0.40884476534296027,
+          "recall": 0.38292476754015214,
+          "f1": 0.3954604975993016,
+          "exact_candidate": 732,
+          "exact_candidate_recall": 0.6187658495350803
+        },
+        "DATE": {
+          "gold": 1575,
+          "predicted": 1528,
+          "tp": 1488,
+          "precision": 0.9738219895287958,
+          "recall": 0.9447619047619048,
+          "f1": 0.9590718659361909,
+          "exact_candidate": 1494,
+          "exact_candidate_recall": 0.9485714285714286
+        },
+        "CASENO": {
+          "gold": 760,
+          "predicted": 601,
+          "tp": 425,
+          "precision": 0.7071547420965059,
+          "recall": 0.5592105263157895,
+          "f1": 0.6245407788390889,
+          "exact_candidate": 434,
+          "exact_candidate_recall": 0.5710526315789474
+        }
+      },
+      "caveat": "Fold checkpoint, per-label source, and threshold selection reuse OOF labels; local F1 is optimistic."
+    },
+    "original_six": [
+      {
+        "slot": 1,
+        "status": "complete",
+        "step": 800,
+        "target_step": 800,
+        "best_strict_macro_f1_local": 0.3075099943160201
+      },
+      {
+        "slot": 2,
+        "status": "complete",
+        "step": 800,
+        "target_step": 800,
+        "best_strict_macro_f1_local": 0.07258127744621785
+      },
+      {
+        "slot": 3,
+        "status": "complete",
+        "step": 1000,
+        "target_step": 1000,
+        "best_strict_macro_f1_local": 0.3041361816465264
+      },
+      {
+        "slot": 4,
+        "status": "complete",
+        "step": 1000,
+        "target_step": 1000,
+        "best_strict_macro_f1_local": 0.20180253053017697
+      },
+      {
+        "slot": 5,
+        "status": "complete",
+        "step": 800,
+        "target_step": 800,
+        "best_strict_macro_f1_local": 0.26880060921595134
+      },
+      {
+        "slot": 6,
+        "status": "complete",
+        "step": 1000,
+        "target_step": 1000,
+        "best_strict_macro_f1_local": 0.13555141269441992
+      }
+    ],
+    "gold_alignment": {
+      "total": 8393,
+      "whitespace_trim_exact": 8241,
+      "whitespace_trim_exact_rate": 0.9818896699630645
+    },
+    "historical_user_reported_v2_official": 0.506919,
+    "historical_official_reference_is_not_verified_best": true
+  },
+  "phase3": {
+    "source_archive": "CS781_Phase3_HighF1_All_Artifacts.zip",
+    "audit": {
+      "train_documents": 80,
+      "train_sentences": 16845,
+      "dev_documents": 10,
+      "dev_sentences": 2142,
+      "test_documents": 10,
+      "test_sentences": 2197,
+      "label_sentences": {
+        "Fact": 4098,
+        "ArgumentPetitioner": 1613,
+        "ArgumentRespondent": 1348,
+        "RatioOfTheDecision": 4301,
+        "RulingByPresentCourt": 307,
+        "RulingByLowerCourt": 874,
+        "None": 297,
+        "PrecedentNotReliedUpon": 569,
+        "PrecedentReliedUpon": 1945,
+        "Statute": 1099,
+        "Issue": 107,
+        "Dissent": 284,
+        "PrecedentOverruled": 3
+      },
+      "label_documents": {
+        "Fact": 78,
+        "ArgumentRespondent": 59,
+        "RulingByPresentCourt": 80,
+        "ArgumentPetitioner": 72,
+        "RatioOfTheDecision": 80,
+        "None": 49,
+        "RulingByLowerCourt": 46,
+        "PrecedentReliedUpon": 47,
+        "PrecedentNotReliedUpon": 32,
+        "Statute": 50,
+        "Issue": 36,
+        "Dissent": 2,
+        "PrecedentOverruled": 1
+      },
+      "phase1_sources": [
+        "03",
+        "01 (conditional second branch)"
+      ],
+      "private_score": null
+    },
+    "report": {
+      "status": "READY_FOR_REVIEW",
+      "submission": "/kaggle/working/CS781_Phase3_HighF1_Submission.zip",
+      "submission_sha256": "72b894c30ca1a554c48e6d76a4c87da93c9729a861647bc832c4b8d3c4a7274e",
+      "artifact": "/kaggle/working/CS781_Phase3_HighF1_All_Artifacts.zip",
+      "selected_mode": "raw",
+      "use_wide": false,
+      "primary_oof_documents": 80,
+      "primary_oof_macro_f1": 0.4241475390156687,
+      "official_dev_macro_f1": 0.5333490999579209,
+      "test_documents": 10,
+      "test_sentences": 2197,
+      "private_score": null,
+      "target_f1": 0.55,
+      "caution": "Score target cannot be guaranteed without private evaluation."
+    },
+    "decoder_comparisons": {
+      "primary_oof": {
+        "raw": {
+          "macro_all13": 0.4241475390156687,
+          "macro_supported": 0.4241475390156687
+        },
+        "pair": {
+          "macro_all13": 0.42156307685466055,
+          "macro_supported": 0.42156307685466055
+        },
+        "pair_crf025": {
+          "macro_all13": 0.4215218550260822,
+          "macro_supported": 0.4215218550260822
+        },
+        "pair_crf05": {
+          "macro_all13": 0.4218472089067732,
+          "macro_supported": 0.4218472089067732
+        }
+      },
+      "official_dev": {
+        "raw": {
+          "macro_all13": 0.4512953922720869,
+          "macro_supported": 0.5333490999579209
+        },
+        "pair": {
+          "macro_all13": 0.4538043524334178,
+          "macro_supported": 0.5363142346940393
+        },
+        "pair_crf025": {
+          "macro_all13": 0.454690651562539,
+          "macro_supported": 0.5373616791193643
+        },
+        "pair_crf05": {
+          "macro_all13": 0.45591425999250923,
+          "macro_supported": 0.5388077618093291
+        }
+      }
+    },
+    "original_six": [
+      {
+        "slot": 1,
+        "method": "lora",
+        "base": "03",
+        "best_dev_macro_f1": 0.41502219762220743,
+        "package_sha256": "b9cbaf7d7cab166ad99fc0ca2d14e421cf5dd36bce9860d18a576bf8262fa80f"
+      },
+      {
+        "slot": 2,
+        "method": "rslora",
+        "base": "01",
+        "best_dev_macro_f1": 0.42259756146032046,
+        "package_sha256": "bd18bf80bd66a35c02e66222f142a5bf3ffd6fbe887491edf945f3295802a853"
+      },
+      {
+        "slot": 3,
+        "method": "ia3",
+        "base": "02",
+        "best_dev_macro_f1": 0.35083150828056986,
+        "package_sha256": "a1271abdd202b41dab9a2ab89539d34495b21e1e57cc274df39ea202c2eefc28"
+      },
+      {
+        "slot": 4,
+        "method": "lorma",
+        "base": "04",
+        "best_dev_macro_f1": 0.42069035060745286,
+        "package_sha256": "fe1fa75b8f006c8dc3bd8c771b1c01e7ea5fa711163e10a5f07b29acbf3df9b2"
+      },
+      {
+        "slot": 5,
+        "method": "prompt",
+        "base": "03",
+        "best_dev_macro_f1": 0.4110994693948742,
+        "package_sha256": "ae30b913c81e534df06237961033c4d8fba501161dc190d294882629ce4d6a45"
+      },
+      {
+        "slot": 6,
+        "method": "distillation",
+        "base": "03",
+        "best_dev_macro_f1": 0.41129792399200316,
+        "package_sha256": "cd5e91df6b330cbdf0f19a7401ea1b2b39daed6b6199ef5f4b991db6eb0490ac"
+      }
+    ],
+    "one_submission_dev_supported": 0.5494166591759972,
+    "one_submission_dev_all13": 0.4648910193027669
+  },
+  "phase4": {
+    "source_archive": "CS781_Phase4_All_Artifacts (1).zip",
+    "audit": {
+      "label_counts": {
+        "train": {
+          "0": 22067,
+          "1": 15320
+        },
+        "dev": {
+          "0": 1749,
+          "1": 1756
+        }
+      },
+      "lengths": {
+        "train": {
+          "count": 37387,
+          "characters_median": 13023,
+          "characters_p95": 54753
+        },
+        "dev": {
+          "count": 3505,
+          "characters_median": 16988,
+          "characters_p95": 56223
+        },
+        "test": {
+          "count": 1517,
+          "characters_median": 17320,
+          "characters_p95": 58170
+        }
+      },
+      "exact_duplicate_counts": {
+        "train": 5735,
+        "dev": 994,
+        "test": 0
+      },
+      "repeated_source_id_rows": {
+        "train": 5082,
+        "dev": 994,
+        "test": 0
+      },
+      "case_groups_train": 31652,
+      "validation_group_mode": "case_id_and_exact_text",
+      "majority_accuracy_dev": 0.5009985734664765,
+      "train_case_count": 37387,
+      "dev_case_count": 3505,
+      "test_case_count": 1517,
+      "test_id_sha256": "f720955a95074f8cf5901cc5860e92b63fb4056d73409508436580331fff2b3b",
+      "private_score": null
+    },
+    "reports": [
+      {
+        "slot": "01",
+        "base": "01",
+        "method": "full",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "outer_macro_f1": null,
+        "outer_metric": null,
+        "dev_macro_f1": 0.7296975279610435,
+        "final_threshold": 0.3,
+        "majority_outer_macro_f1": 0.37116089750058867,
+        "outer_cases": 0,
+        "dev_cases": 3505,
+        "test_cases": 1517,
+        "quality_warning": true,
+        "private_f1": null,
+        "note": "Outer cases never selected their checkpoint or threshold; private score is unknown.",
+        "submission": "/kaggle/working/CS781_Phase4_Submission_01.zip",
+        "zip_sha256": "cd206af94ec8db9594cc7177ddcfed7a84a835ff838cd89379c60a49c3996072",
+        "prediction_sha256": "fad81e327b6bf43fd163bdb6db0f73f2f94f04b640c64d194b4c27a46cbe3ce6"
+      },
+      {
+        "slot": "02",
+        "base": "03",
+        "method": "partial",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "outer_macro_f1": null,
+        "outer_metric": null,
+        "dev_macro_f1": 0.7551014335010813,
+        "final_threshold": 0.55,
+        "majority_outer_macro_f1": 0.37116089750058867,
+        "outer_cases": 0,
+        "dev_cases": 3505,
+        "test_cases": 1517,
+        "quality_warning": true,
+        "private_f1": null,
+        "note": "Outer cases never selected their checkpoint or threshold; private score is unknown.",
+        "submission": "/kaggle/working/CS781_Phase4_Submission_02.zip",
+        "zip_sha256": "6942edbf597b693629bee02f3b145583b8772819a387741ded96e0ca09ebf6f3",
+        "prediction_sha256": "5a502431b595011981d1f1c45c043441abeab7fd8b8ab2c4533312a6b5e2ec8c"
+      },
+      {
+        "slot": "03",
+        "base": "04",
+        "method": "lorma",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "outer_macro_f1": null,
+        "outer_metric": null,
+        "dev_macro_f1": 0.6652585953570379,
+        "final_threshold": 0.7,
+        "majority_outer_macro_f1": 0.37116089750058867,
+        "outer_cases": 0,
+        "dev_cases": 3505,
+        "test_cases": 1517,
+        "quality_warning": true,
+        "private_f1": null,
+        "note": "Outer cases never selected their checkpoint or threshold; private score is unknown.",
+        "submission": "/kaggle/working/CS781_Phase4_Submission_03.zip",
+        "zip_sha256": "23d52d52d575f2aa10abb80047d1f06c062125efc75cd6fc5b9b0ecb99f57509",
+        "prediction_sha256": "65b2eb466403066924153d594a5c34c19a4c0e4662a8176e7e0fa96302687604"
+      },
+      {
+        "slot": "04",
+        "base": "02",
+        "method": "adalora",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "outer_macro_f1": null,
+        "outer_metric": null,
+        "dev_macro_f1": 0.6123464628800475,
+        "final_threshold": 0.45,
+        "majority_outer_macro_f1": 0.37116089750058867,
+        "outer_cases": 0,
+        "dev_cases": 3505,
+        "test_cases": 1517,
+        "quality_warning": true,
+        "private_f1": null,
+        "note": "Outer cases never selected their checkpoint or threshold; private score is unknown.",
+        "submission": "/kaggle/working/CS781_Phase4_Submission_04.zip",
+        "zip_sha256": "11fd819b27333d1b01a8a20cdf3ba69e715b19e0e9fb90a0af7a9144f2afcf92",
+        "prediction_sha256": "c56b10ac9486561e00eaca2e72f436f548e62d0b8c712fa74755b266536f8e60"
+      },
+      {
+        "slot": "05",
+        "base": "03",
+        "method": "adapters",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "outer_macro_f1": null,
+        "outer_metric": null,
+        "dev_macro_f1": 0.7446491690124211,
+        "final_threshold": 0.65,
+        "majority_outer_macro_f1": 0.37116089750058867,
+        "outer_cases": 0,
+        "dev_cases": 3505,
+        "test_cases": 1517,
+        "quality_warning": true,
+        "private_f1": null,
+        "note": "Outer cases never selected their checkpoint or threshold; private score is unknown.",
+        "submission": "/kaggle/working/CS781_Phase4_Submission_05.zip",
+        "zip_sha256": "2a10784ddf9ec1ded267b2702d8eacf7e87ed38e7ff28a16a7c2582bb272c948",
+        "prediction_sha256": "170db0bb0c09456491c50baeacb02441e9c195f944aab85fa9504de4752a3aef"
+      },
+      {
+        "slot": "06",
+        "base": "03",
+        "method": "distill",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "outer_macro_f1": null,
+        "outer_metric": null,
+        "dev_macro_f1": 0.687701741479778,
+        "final_threshold": 0.45,
+        "majority_outer_macro_f1": 0.37116089750058867,
+        "outer_cases": 0,
+        "dev_cases": 3505,
+        "test_cases": 1517,
+        "quality_warning": true,
+        "private_f1": null,
+        "note": "Outer cases never selected their checkpoint or threshold; private score is unknown.",
+        "submission": "/kaggle/working/CS781_Phase4_Submission_06.zip",
+        "zip_sha256": "3ab03c5979e08711414269699533e4cfcaa90bab0c639b58291701851e113d1d",
+        "prediction_sha256": "acfb9209cd9960c6b3e30c797598e8b2d3558bc3509222531bdf3d233fd7bfd5"
+      }
+    ]
+  },
+  "phase5": {
+    "source_archive": "CS781_Phase5_All_Artifacts.zip",
+    "audit": {
+      "counts": {
+        "train": 42750,
+        "dev": 10181,
+        "test": 13019
+      },
+      "label_count": 100,
+      "train_positive_counts": {
+        "3": 453,
+        "9": 823,
+        "69": 642,
+        "5": 11730,
+        "81": 1321,
+        "94": 3835,
+        "7": 1037,
+        "10": 4134,
+        "17": 831,
+        "88": 1661,
+        "15": 336,
+        "16": 665,
+        "71": 2303,
+        "72": 1031,
+        "74": 319,
+        "77": 4046,
+        "40": 543,
+        "43": 7728,
+        "44": 3660,
+        "45": 2618,
+        "46": 2509,
+        "48": 585,
+        "49": 380,
+        "50": 318,
+        "65": 351,
+        "91": 1327,
+        "78": 1739,
+        "96": 1973,
+        "29": 497,
+        "92": 309,
+        "12": 4324,
+        "13": 4136,
+        "14": 3818,
+        "34": 10380,
+        "37": 1269,
+        "38": 1713,
+        "75": 485,
+        "33": 1483,
+        "35": 3157,
+        "30": 3009,
+        "39": 7120,
+        "97": 7880,
+        "47": 879,
+        "53": 1276,
+        "31": 1138,
+        "32": 385,
+        "67": 1093,
+        "83": 980,
+        "99": 674,
+        "64": 632,
+        "86": 363,
+        "89": 2113,
+        "90": 2066,
+        "55": 1787,
+        "52": 1084,
+        "19": 523,
+        "23": 304,
+        "25": 287,
+        "61": 3723,
+        "62": 473,
+        "85": 1549,
+        "51": 3184,
+        "66": 309,
+        "8": 349,
+        "11": 615,
+        "21": 684,
+        "22": 527,
+        "20": 487,
+        "28": 602,
+        "6": 698,
+        "4": 341,
+        "70": 1360,
+        "84": 272,
+        "41": 821,
+        "60": 358,
+        "26": 1909,
+        "1": 1035,
+        "63": 1658,
+        "36": 569,
+        "54": 2204,
+        "27": 329,
+        "24": 469,
+        "73": 591,
+        "59": 310,
+        "93": 564,
+        "58": 1431,
+        "95": 375,
+        "42": 566,
+        "98": 490,
+        "87": 607,
+        "80": 573,
+        "18": 393,
+        "76": 530,
+        "68": 629,
+        "57": 434,
+        "0": 343,
+        "2": 367,
+        "79": 436,
+        "82": 604,
+        "56": 558
+      },
+      "dev_only_labels": [],
+      "labels_per_document": {
+        "train": {
+          "median": 3.0,
+          "p95": 8.0
+        },
+        "dev": {
+          "median": 3.0,
+          "p95": 9.0
+        }
+      },
+      "character_lengths": {
+        "train": {
+          "median": 2717,
+          "p95": 23797
+        },
+        "dev": {
+          "median": 3418,
+          "p95": 25751
+        },
+        "test": {
+          "median": 3368,
+          "p95": 24697
+        }
+      },
+      "duplicate_texts": {
+        "train": 435,
+        "dev": 63,
+        "test": 80
+      },
+      "group_mode": "id_and_exact_text",
+      "split_counts": {
+        "0": 31994,
+        "1": 4311,
+        "2": 6445
+      },
+      "private_score": null
+    },
+    "reports": [
+      {
+        "slot": "01",
+        "base": "03",
+        "method": "partial",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "dev_score_is_selection_biased": true,
+        "holdout_best_epoch": 7,
+        "final_best_epoch": 7,
+        "trainable_parameters": 22175306,
+        "test_cases": 13019,
+        "test_predicted_cardinality": 4.700130578385437,
+        "test_empty_predictions": 552,
+        "prediction_sha256": "2c90a200e11ae73f9857f4f44ae9832f66e671ae7df74193a152e3336f7d4a83",
+        "zip_sha256": "153a5554b8838b6879df5e8cf0384a4664effa87faa691ffcf048e1c5757eb5d",
+        "phase1_checkpoint_sha256": "6e785681e814eee03b10e4798d0e61fce82a6bc798042a1fcff13d7c9ce0e521",
+        "private_f1": null,
+        "submission": "/kaggle/working/CS781_Phase5_Submission_01.zip",
+        "holdout_metric": {
+          "macro_f1": 0.3793425322529748,
+          "reference_label_macro_f1": 0.3793425322529748,
+          "micro_f1": 0.4813239111623882,
+          "subset_accuracy": 0.04142746314972847,
+          "mean_gold_cardinality": 3.6836307214895267,
+          "mean_pred_cardinality": 4.923351435221101,
+          "supported_labels": 100,
+          "all_labels": 100
+        },
+        "dev_metric_selected": {
+          "macro_f1": 0.385572917793757,
+          "reference_label_macro_f1": 0.385572917793757,
+          "micro_f1": 0.4865747089959084,
+          "subset_accuracy": 0.0423337589627738,
+          "mean_gold_cardinality": 3.9157253707887243,
+          "mean_pred_cardinality": 4.750319222080345,
+          "supported_labels": 100,
+          "all_labels": 100
+        }
+      },
+      {
+        "slot": "02",
+        "base": "01",
+        "method": "full",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "dev_score_is_selection_biased": true,
+        "holdout_best_epoch": 5,
+        "final_best_epoch": 6,
+        "trainable_parameters": 82994378,
+        "test_cases": 13019,
+        "test_predicted_cardinality": 4.899070589138951,
+        "test_empty_predictions": 605,
+        "prediction_sha256": "1ff407c20b556aa3a615bafa8aedefb57f167d0f2b46b261dff4f6cd3e8f3bfd",
+        "zip_sha256": "b9c11f3d67433847ca1fa820450d8b74ff32120b38bd56b85b2550f9afca8347",
+        "phase1_checkpoint_sha256": "461da257a673e70727fe2226d70b069dfeaab6bdea37ca1e630643d46247e509",
+        "private_f1": null,
+        "submission": "/kaggle/working/CS781_Phase5_Submission_02.zip",
+        "holdout_metric": {
+          "macro_f1": 0.37430155468858495,
+          "reference_label_macro_f1": 0.37430155468858495,
+          "micro_f1": 0.48213810157884723,
+          "subset_accuracy": 0.04685802948021722,
+          "mean_gold_cardinality": 3.6836307214895267,
+          "mean_pred_cardinality": 4.4730799069045775,
+          "supported_labels": 100,
+          "all_labels": 100
+        },
+        "dev_metric_selected": {
+          "macro_f1": 0.38224142743275463,
+          "reference_label_macro_f1": 0.38224142743275463,
+          "micro_f1": 0.484859900063153,
+          "subset_accuracy": 0.042824869855613394,
+          "mean_gold_cardinality": 3.9157253707887243,
+          "mean_pred_cardinality": 4.9495138002160886,
+          "supported_labels": 100,
+          "all_labels": 100
+        }
+      },
+      {
+        "slot": "03",
+        "base": "04",
+        "method": "lorma",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "dev_score_is_selection_biased": true,
+        "holdout_best_epoch": 5,
+        "final_best_epoch": 7,
+        "trainable_parameters": 1863370,
+        "test_cases": 13019,
+        "test_predicted_cardinality": 5.011828865504263,
+        "test_empty_predictions": 567,
+        "prediction_sha256": "6f1f42eaf0afd3375243c962b6193653e0e463e1313220a9d7d08fa84345721a",
+        "zip_sha256": "ae052ffa180cdcd314389a06292a47e9ec2931fa5a498d062cd9fa0c5ccd1da0",
+        "phase1_checkpoint_sha256": "b5120789f4f054b9d8a146594973c27dfa6ec15087d25d3f20405893d02960e6",
+        "private_f1": null,
+        "submission": "/kaggle/working/CS781_Phase5_Submission_03.zip",
+        "holdout_metric": {
+          "macro_f1": 0.34331735079757136,
+          "reference_label_macro_f1": 0.34331735079757136,
+          "micro_f1": 0.4483979304710901,
+          "subset_accuracy": 0.03351435221101629,
+          "mean_gold_cardinality": 3.6836307214895267,
+          "mean_pred_cardinality": 4.863304887509697,
+          "supported_labels": 100,
+          "all_labels": 100
+        },
+        "dev_metric_selected": {
+          "macro_f1": 0.3488871312633718,
+          "reference_label_macro_f1": 0.3488871312633718,
+          "micro_f1": 0.45633349288542707,
+          "subset_accuracy": 0.031234652784598763,
+          "mean_gold_cardinality": 3.9157253707887243,
+          "mean_pred_cardinality": 5.113250171888812,
+          "supported_labels": 100,
+          "all_labels": 100
+        }
+      },
+      {
+        "slot": "04",
+        "base": "02",
+        "method": "adapters",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "dev_score_is_selection_biased": true,
+        "holdout_best_epoch": 7,
+        "final_best_epoch": 6,
+        "trainable_parameters": 1313866,
+        "test_cases": 13019,
+        "test_predicted_cardinality": 5.491281972501728,
+        "test_empty_predictions": 439,
+        "prediction_sha256": "349cbdf57daee4ffd3eb4e3d45754afa3dbee610a053d08ec3d78374b12c9e42",
+        "zip_sha256": "95724a55257a7704ec5ede63e7266d9896b075ed1de3ebccd7cec84366f85fb4",
+        "phase1_checkpoint_sha256": "895fd800470b7cc21f2b644925be80741b314c0b0ebe582bdba3470065ec2eda",
+        "private_f1": null,
+        "submission": "/kaggle/working/CS781_Phase5_Submission_04.zip",
+        "holdout_metric": {
+          "macro_f1": 0.32787259399866536,
+          "reference_label_macro_f1": 0.32787259399866536,
+          "micro_f1": 0.4324020185325198,
+          "subset_accuracy": 0.029014740108611325,
+          "mean_gold_cardinality": 3.6836307214895267,
+          "mean_pred_cardinality": 5.140729247478665,
+          "supported_labels": 100,
+          "all_labels": 100
+        },
+        "dev_metric_selected": {
+          "macro_f1": 0.3297776530284504,
+          "reference_label_macro_f1": 0.3297776530284504,
+          "micro_f1": 0.437636035737236,
+          "subset_accuracy": 0.023376878499165112,
+          "mean_gold_cardinality": 3.9157253707887243,
+          "mean_pred_cardinality": 5.560946861801395,
+          "supported_labels": 100,
+          "all_labels": 100
+        }
+      }
+    ]
+  },
+  "phase6": {
+    "source_archive": "CS781_Phase6_All_Artifacts.zip",
+    "audit": {
+      "train": 7028,
+      "test": 100,
+      "split_counts": {
+        "0": 6324,
+        "1": 352,
+        "2": 352
+      },
+      "document_characters": {
+        "median": 17911,
+        "p95": 64895
+      },
+      "summary_words": {
+        "median": 638,
+        "p95": 2010
+      },
+      "duplicate_documents": 27,
+      "private_score": null
+    },
+    "reports": [
+      {
+        "slot": "01",
+        "base": "02",
+        "method": "lora",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "checkpoint_stage": "fit",
+        "fit_best_bertscore_sample": 0.8219199776649475,
+        "fit_best_epoch": 4,
+        "trainable_parameters": 918784,
+        "test_cases": 100,
+        "prediction_sha256": "9385fa17fe42fe84e954117f7a3a3ea30f305ad745b9553c7f32773b042f2bc4",
+        "zip_sha256": "e673620a0a69ba26cbc585c20b694448cd5bf5f12c5cfa9febdaee1aebd112ce",
+        "private_score": null,
+        "phase1_checkpoint_sha256": "895fd800470b7cc21f2b644925be80741b314c0b0ebe582bdba3470065ec2eda"
+      },
+      {
+        "slot": "02",
+        "base": "03",
+        "method": "adalora",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "checkpoint_stage": "fit",
+        "fit_best_bertscore_sample": 0.8253376483917236,
+        "fit_best_epoch": 3,
+        "trainable_parameters": 689800,
+        "test_cases": 100,
+        "prediction_sha256": "2edf75ba54cd8ab97505b5a724fdc418d20748c7fb18279e9e55c211a7bffded",
+        "zip_sha256": "8331032f317827116577d3d71c4928c5f02e97019c252ad12ed31ae750c43e99",
+        "private_score": null,
+        "phase1_checkpoint_sha256": "6e785681e814eee03b10e4798d0e61fce82a6bc798042a1fcff13d7c9ce0e521"
+      },
+      {
+        "slot": "03",
+        "base": "04",
+        "method": "lorma",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "checkpoint_stage": "fit",
+        "fit_best_bertscore_sample": 0.8197689652442932,
+        "fit_best_epoch": 4,
+        "trainable_parameters": 559616,
+        "test_cases": 100,
+        "prediction_sha256": "87bae554cf4724e0db67f5d0c69fb2bc7d4ed8535e7bc2c29153409ccad3ed2c",
+        "zip_sha256": "e649db63108541c5e3a815b4117b68e33cb8a9f896a1ab710edd10facb299458",
+        "private_score": null,
+        "phase1_checkpoint_sha256": "b5120789f4f054b9d8a146594973c27dfa6ec15087d25d3f20405893d02960e6"
+      },
+      {
+        "slot": "04",
+        "base": "01",
+        "method": "houlsby",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "checkpoint_stage": "fit",
+        "fit_best_bertscore_sample": 0.8228533267974854,
+        "fit_best_epoch": 2,
+        "trainable_parameters": 1194240,
+        "test_cases": 100,
+        "prediction_sha256": "437de74cc7bd698226c31cc1ca79f4af2361467fca3ff29e515830fc407ca99b",
+        "zip_sha256": "f2ee593f0989aab71256fece6658b698dfe3a82fde35172a10a59af078ed08ee",
+        "private_score": null,
+        "phase1_checkpoint_sha256": "461da257a673e70727fe2226d70b069dfeaab6bdea37ca1e630643d46247e509"
+      },
+      {
+        "slot": "05",
+        "base": "02",
+        "method": "pfeiffer",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "checkpoint_stage": "fit",
+        "fit_best_bertscore_sample": 0.822398841381073,
+        "fit_best_epoch": 5,
+        "trainable_parameters": 827392,
+        "test_cases": 100,
+        "prediction_sha256": "af912fcfe4e818de1ffe941c37eddf481542a036d2fdeca038ecf7308da2aa4a",
+        "zip_sha256": "b601591ff348ab44b3a50306db26c1d82e5f53c98bbb426c592bf4525b1b6ba0",
+        "private_score": null,
+        "phase1_checkpoint_sha256": "895fd800470b7cc21f2b644925be80741b314c0b0ebe582bdba3470065ec2eda"
+      },
+      {
+        "slot": "06",
+        "base": "03",
+        "method": "distill",
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "checkpoint_stage": "fit",
+        "fit_best_bertscore_sample": 0.8239527344703674,
+        "fit_best_epoch": 4,
+        "trainable_parameters": 467752,
+        "test_cases": 100,
+        "prediction_sha256": "d5e844f20f56ed108949e7b65e851f012d364375b8ee5ede037d1d8c1af45dab",
+        "zip_sha256": "19431ce6bca56f70dc8405c3aff0e85f2b4e1a73a043aae266e11031ec0ee813",
+        "private_score": null,
+        "phase1_checkpoint_sha256": "6e785681e814eee03b10e4798d0e61fce82a6bc798042a1fcff13d7c9ce0e521"
+      }
+    ],
+    "recommended_slot": "02",
+    "full_tune_bertscore_f1": 0.8253008127212524,
+    "untouched_audit_metric": {
+      "bertscore_f1": 0.826237142086029,
+      "bertscore_precision": 0.8351741433143616,
+      "bertscore_recall": 0.8175666928291321,
+      "rouge1_f1": 0.4003788771500643,
+      "rougeL_f1": 0.21156958718240526,
+      "cases": 352,
+      "predicted_words_mean": 398.1761363636364,
+      "reference_words_mean": 858.9261363636364
+    },
+    "targets_truncated_base03": 5430,
+    "label_audit": {
+      "source_rows": 7030,
+      "labeled_rows": 7028,
+      "skipped_without_reference": 2,
+      "skipped_ids": [
+        "299",
+        "4799"
+      ]
+    }
+  },
+  "phase7": {
+    "source_archive": "CS781_Phase7_All_Artifacts.zip",
+    "audit": {
+      "train": {
+        "queries": 827,
+        "candidates": 4320,
+        "query_words_median": 4508.0,
+        "candidate_words_p95": 19243.100000000013,
+        "query_exact_duplicates": 0,
+        "gold_counts": {
+          "2": 134,
+          "18": 6,
+          "1": 121,
+          "16": 6,
+          "8": 32,
+          "5": 51,
+          "3": 100,
+          "29": 3,
+          "6": 44,
+          "4": 78,
+          "11": 29,
+          "10": 25,
+          "24": 7,
+          "14": 22,
+          "0": 10,
+          "12": 21,
+          "13": 16,
+          "7": 41,
+          "9": 27,
+          "21": 2,
+          "17": 10,
+          "36": 2,
+          "22": 2,
+          "15": 11,
+          "25": 3,
+          "19": 6,
+          "23": 3,
+          "20": 4,
+          "37": 1,
+          "31": 2,
+          "38": 1,
+          "52": 1,
+          "26": 1,
+          "33": 2,
+          "28": 1,
+          "39": 1,
+          "27": 1
+        },
+        "oracle_f1_at7": 0.6385509597188429
+      },
+      "dev": {
+        "queries": 118,
+        "candidates": 1023,
+        "query_words_median": 4619.5,
+        "candidate_words_p95": 26778.19999999999,
+        "query_exact_duplicates": 0,
+        "gold_counts": {
+          "11": 6,
+          "24": 2,
+          "15": 2,
+          "9": 5,
+          "3": 7,
+          "6": 7,
+          "12": 4,
+          "4": 9,
+          "8": 4,
+          "2": 18,
+          "1": 15,
+          "5": 14,
+          "10": 2,
+          "7": 9,
+          "18": 1,
+          "13": 2,
+          "22": 2,
+          "27": 1,
+          "19": 2,
+          "63": 1,
+          "35": 1,
+          "17": 1,
+          "16": 1,
+          "25": 1,
+          "92": 1
+        },
+        "oracle_f1_at7": 0.6181211784324625
+      },
+      "test": {
+        "queries": 237,
+        "candidates": 1727,
+        "query_words_median": 4653.0,
+        "candidate_words_p95": 20894.299999999977,
+        "query_exact_duplicates": 0
+      },
+      "cross_split_query_text_overlap": {
+        "train_dev": 0,
+        "train_test": 1,
+        "dev_test": 0
+      }
+    },
+    "reports": [
+      {
+        "slot": "01",
+        "base": "03",
+        "method": "full",
+        "lr": 2e-05,
+        "head_lr": 0.0002,
+        "epochs": 6,
+        "selected_epoch": 2,
+        "neural_weight": 0.5,
+        "test_queries": 237,
+        "prediction_sha256": "81200dfa119b39d7a7885ae720b147fd93597d6400dc758f267b3e8cce7eee7a",
+        "top7_sets_sha256": "38a2d4c314a6e0e4dbef830ff3f25e93babebf84b75201e7b4fe959d88cd3353",
+        "checkpoint_sha256": "a66e390af913513bf5047fade079568262ed5eeeda7500397eec61f2ebb0f33a",
+        "trainable_parameters": 52280704,
+        "active_parameters": 52305704,
+        "private_score": null,
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "tune_sample_metric": {
+          "primary_metric_1": 0.3436669619131975,
+          "secondary_metric_1": 0.33390705679862304,
+          "secondary_metric_2": 0.354014598540146,
+          "tp": 194,
+          "fp": 387,
+          "fn": 354
+        }
+      },
+      {
+        "slot": "02",
+        "base": "01",
+        "method": "partial",
+        "lr": 3e-05,
+        "head_lr": 0.0002,
+        "epochs": 5,
+        "selected_epoch": 4,
+        "neural_weight": 0.5,
+        "test_queries": 237,
+        "prediction_sha256": "4c144df45781eb85b481eb5da18cb2b784743f8de9b0c08df978edf5caea0010",
+        "top7_sets_sha256": "b8bfc667de1f0e58f4d789e29e33f25e0b93ac73cecb89a0866164df95f14469",
+        "checkpoint_sha256": "d7cd62eee5c8d4f149e50f7c8910aa0cc1e50075e7dd344828ad306faa7ca819",
+        "trainable_parameters": 28523776,
+        "active_parameters": 82210048,
+        "private_score": null,
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "tune_sample_metric": {
+          "primary_metric_1": 0.3312666076173605,
+          "secondary_metric_1": 0.3218588640275387,
+          "secondary_metric_2": 0.34124087591240876,
+          "tp": 187,
+          "fp": 394,
+          "fn": 361
+        }
+      },
+      {
+        "slot": "03",
+        "base": "04",
+        "method": "lorma",
+        "lr": 0.00015,
+        "head_lr": 0.0002,
+        "epochs": 5,
+        "selected_epoch": 2,
+        "neural_weight": 0.5,
+        "test_queries": 237,
+        "prediction_sha256": "71cf93274fa29d1d6e5eff09d2d73bae8eb55266a5b491cb7cadbba55095f7d7",
+        "top7_sets_sha256": "696e68c8b4278db73fb1af338e3650580e73fd2957aeacecece76db4dd87540f",
+        "checkpoint_sha256": "0dc18ed95b91b02038e2c184071abdbb598607c44b82cb7d90ad874dfa9b1418",
+        "trainable_parameters": 877824,
+        "active_parameters": 55990952,
+        "private_score": null,
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "tune_sample_metric": {
+          "primary_metric_1": 0.32063773250664307,
+          "secondary_metric_1": 0.31153184165232356,
+          "secondary_metric_2": 0.3302919708029197,
+          "tp": 181,
+          "fp": 400,
+          "fn": 367
+        }
+      },
+      {
+        "slot": "04",
+        "base": "02",
+        "method": "ia3",
+        "lr": 0.0003,
+        "head_lr": 0.0002,
+        "epochs": 5,
+        "selected_epoch": 3,
+        "neural_weight": 0.5,
+        "test_queries": 237,
+        "prediction_sha256": "31985c6f3d35e5bff07b36a68ca7e86383d42baacd340491105a36181e56798f",
+        "top7_sets_sha256": "36d34ea68a4e421ee10fc9a1e3d46e5b0b50d4cb4f7774d198d05c89c84c4f1e",
+        "checkpoint_sha256": "6e202a0a8361b58e1e3cd6b22e943daa36d9289d2bc77e81e60568975be10e06",
+        "trainable_parameters": 150784,
+        "active_parameters": 35974400,
+        "private_score": null,
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "tune_sample_metric": {
+          "primary_metric_1": 0.32772364924712133,
+          "secondary_metric_1": 0.31841652323580033,
+          "secondary_metric_2": 0.3375912408759124,
+          "tp": 185,
+          "fp": 396,
+          "fn": 363
+        }
+      },
+      {
+        "slot": "06",
+        "base": "02",
+        "method": "distill",
+        "lr": 2e-05,
+        "head_lr": 0.0002,
+        "epochs": 5,
+        "selected_epoch": 5,
+        "neural_weight": 0.5,
+        "test_queries": 237,
+        "prediction_sha256": "3ee16789599a5d9ef87097925c63fbc7f26668c13fd14c864334de32d7be4695",
+        "top7_sets_sha256": "7d38bfcbd763a3b970fd35f8004c73993765025c5ff3c75e5162a0329b6c3cd2",
+        "checkpoint_sha256": "54a5feab7ab1ccdd2ee628d142d93e031560e3b2e751e2070a3caf0e7b1b7a21",
+        "trainable_parameters": 35955968,
+        "active_parameters": 35955968,
+        "private_score": null,
+        "status": "READY_FOR_MANUAL_UPLOAD",
+        "tune_sample_metric": {
+          "primary_metric_1": 0.3312666076173605,
+          "secondary_metric_1": 0.3218588640275387,
+          "secondary_metric_2": 0.34124087591240876,
+          "tp": 187,
+          "fp": 394,
+          "fn": 361
+        }
+      }
+    ],
+    "gold_control_comparison": {
+      "1": {
+        "gold_only": {
+          "primary_metric_1": 0.30646589902568644,
+          "secondary_metric_1": 0.2977624784853701,
+          "secondary_metric_2": 0.3156934306569343,
+          "tp": 173,
+          "fp": 408,
+          "fn": 375
+        },
+        "kd": {
+          "primary_metric_1": 0.3100088573959256,
+          "secondary_metric_1": 0.30120481927710846,
+          "secondary_metric_2": 0.3193430656934307,
+          "tp": 175,
+          "fp": 406,
+          "fn": 373
+        },
+        "steps_match": true
+      },
+      "2": {
+        "gold_only": {
+          "primary_metric_1": 0.32772364924712133,
+          "secondary_metric_1": 0.31841652323580033,
+          "secondary_metric_2": 0.3375912408759124,
+          "tp": 185,
+          "fp": 396,
+          "fn": 363
+        },
+        "kd": {
+          "primary_metric_1": 0.32063773250664307,
+          "secondary_metric_1": 0.31153184165232356,
+          "secondary_metric_2": 0.3302919708029197,
+          "tp": 181,
+          "fp": 400,
+          "fn": 367
+        },
+        "steps_match": true
+      }
+    },
+    "archive_status": "PARTIAL_OR_REVIEW_REQUIRED",
+    "slot05_last_archived_status": {
+      "epoch": 4,
+      "cursor": 812,
+      "steps": 1639,
+      "pending_eval": false,
+      "complete": false,
+      "best_tp": 184,
+      "best_epoch": 4,
+      "no_improve": 0,
+      "microbatch": 2,
+      "trainable_parameters": 107008,
+      "active_parameters": 52313384,
+      "effective_batch": 8,
+      "use_mined": true,
+      "negative_source_sha256": "c510aafe4dc84ba3b5a716282be5a5662e6e517d64f3f93298625d5473873de0"
+    },
+    "slot05_standalone_submission_present": true,
+    "slot05_last_archived_selection": {
+      "metric": {
+        "primary_metric_1": 0.3259521700620018,
+        "secondary_metric_1": 0.31669535283993117,
+        "secondary_metric_2": 0.3357664233576642,
+        "tp": 184,
+        "fp": 397,
+        "fn": 364
+      },
+      "neural_weight": 0.5,
+      "epoch": 4,
+      "queries": 83
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "experiment_id": "phase1_submission03_prefix_hybrid",
+  "seed": 781,
+  "execution_mode": "auto_train",
+  "workspace": "/kaggle/working/CS781_Capstone/phase1/submission_03",
+  "input_root": "/kaggle/input",
+  "train_files": [
+    "train_acts.json",
+    "train_high_courts.json",
+    "train_supreme_court.json",
+    "train_tribunals.json"
+  ],
+  "test_file": "Phase1- Test.json",
+  "test_filename_aliases": [
+    "Phase1- Test.json",
+    "test.json"
+  ],
+  "hf_repo_id": "Exploration-Lab/CS-781-Capstone",
+  "hf_allow_patterns": [
+    "*Phase_1_Pretraining/*",
+    "*Phase-1_Pretraining/*"
+  ],
+  "official_file_overrides": {},
+  "training_schema_overrides": {},
+  "test_schema_override": null,
+  "validation_fraction": 0.05,
+  "source_mixing_ratios": {
+    "acts": 0.25,
+    "high_courts": 0.25,
+    "supreme_court": 0.25,
+    "tribunals": 0.25
+  },
+  "corpus_document_cap_per_source": 8000,
+  "tokenizer_import_path": null,
+  "student_model_source_path": "/kaggle/input/datasets/anirudhbankhede/prefix-hybrid-lm/prefix_hybrid_lm.py",
+  "completed_notebook_path": null,
+  "architecture_record": {
+    "family": "single-stack bidirectional-prefix / causal-continuation hybrid",
+    "substantive_difference_from_submission01": "the prompt segment is bidirectional rather than globally causal",
+    "substantive_difference_from_submission02": "one shared Transformer stack and one segment-aware self-attention mask; no separate encoder/decoder and no cross-attention",
+    "attention_semantics": "prefix queries attend to all valid prefix keys; continuation queries attend to all valid prefix keys and continuation keys at or before the query",
+    "parameter_range": [
+      50000000,
+      300000000
+    ],
+    "student_model_config": {
+      "vocab_size": 25000,
+      "max_sequence_length": 1280,
+      "hidden_size": 384,
+      "num_layers": 24,
+      "num_heads": 6,
+      "head_dim": 64,
+      "ffn_size": 1024,
+      "dropout": 0.1,
+      "normalization": "pre_rms_norm",
+      "activation": "swiglu",
+      "position_representation": "rope",
+      "tie_word_embeddings": true
+    },
+    "student_exact_parameter_derivation": "For V=25,000, H=384, I=1,024, L=24: tied token embedding = V*H = 9,600,000; each block = attention 4*(H*H+H) = 591,360 + SwiGLU [2*(H*I+I)+(I*H+H)] = 1,182,080 + two RMSNorm vectors 2H = 768, giving 1,774,208 per block and 42,580,992 across 24 blocks; final RMSNorm = 384; vocabulary bias = 25,000; total = 52,206,376 trainable parameters. RoPE and tied output weights add no trainable parameters.",
+    "student_design_rationale": "A 384-dimensional residual stream reduces the information bottleneck while retaining a deep 24-block shared network within the parameter floor. Six heads give a conventional, tensor-core-friendly 64-dimensional head for full RoPE. Pre-RMSNorm, SwiGLU, scaled residual initialization, mixed precision, and balanced two-T4 data parallel batches are used for stable, compute-efficient scratch training."
+  },
+  "innovation_hypothesis": "Relative to a globally causal decoder-only control, bidirectional attention within the legal prompt is expected to improve the model's use of parties, provisions, and procedural facts that occur later in the prompt, while causal continuation masking preserves valid next-token prediction. Full-head RoPE is expected to make relative token distances easier to represent across long legal contexts. The predeclared comparison will use held-out continuation loss/perplexity, BERTScore F1, ROUGE-L F1, BLEU-4, repetition diagnostics, throughput, and peak memory; this is a hypothesis rather than a conclusion.",
+  "ablation_control": "Submission 01 decoder-only baseline rerun or interpreted under the same four-source bounded corpus, 25k tokenizer, scratch-training token budget, validation split, decoding protocol, and evaluator; the intended treatment is prefix-hybrid attention plus RoPE and the narrow/deep shape. Submission 02 remains a secondary encoder-decoder reference.",
+  "student_owned_architecture_attestation": false,
+  "student_configuration_confirmed": false,
+  "full_training_authorized": true,
+  "trained_from_scratch_attestation": false,
+  "decoding": {
+    "target_words": 128,
+    "max_new_tokens": 448,
+    "policies": [
+      {
+        "name": "primary_top_k_nucleus",
+        "strategy": "top_k_top_p",
+        "seed": 781,
+        "temperature": 0.85,
+        "top_k": 100,
+        "top_p": 0.92,
+        "repetition_penalty": 1.08,
+        "no_repeat_ngram_size": 4,
+        "min_unique_word_ratio": 0.55,
+        "max_word_fraction": 0.08
+      },
+      {
+        "name": "retry_wider_nucleus",
+        "strategy": "top_k_top_p",
+        "seed": 1781,
+        "temperature": 0.95,
+        "top_k": 160,
+        "top_p": 0.96,
+        "repetition_penalty": 1.12,
+        "no_repeat_ngram_size": 3,
+        "min_unique_word_ratio": 0.5,
+        "max_word_fraction": 0.1
+      }
+    ]
+  }
+}

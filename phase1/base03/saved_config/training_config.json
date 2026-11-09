@@ -1,0 +1,43 @@
+{
+  "experiment_id": "phase1_submission03_prefix_hybrid",
+  "objective": "target-token cross-entropy under a bidirectional-prefix/causal-continuation mask",
+  "optimizer": "AdamW",
+  "learning_rate": 0.00025,
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "epsilon": 1e-08,
+  "weight_decay": 0.1,
+  "schedule": "linear_warmup_cosine_decay",
+  "warmup_steps": 500,
+  "min_lr_ratio": 0.1,
+  "batch_size": 8,
+  "per_gpu_batch_size": 4,
+  "gradient_accumulation_steps": 4,
+  "source_length": 512,
+  "target_length": 256,
+  "max_steps": 10000,
+  "samples_per_epoch": 32000,
+  "gradient_clip_norm": 1.0,
+  "gradient_checkpointing": false,
+  "validation_interval": 500,
+  "validation_sequences_per_source": 16,
+  "parallelism": "data_parallel",
+  "gpu_ids": [
+    0,
+    1
+  ],
+  "checkpoint_interval": 500,
+  "recovery_interval": 1000,
+  "num_workers": 0,
+  "source_mixture": {
+    "acts": 0.25,
+    "high_courts": 0.25,
+    "supreme_court": 0.25,
+    "tribunals": 0.25
+  },
+  "source_mixture_unit": "document draws, resampled deterministically per epoch",
+  "seed": 781,
+  "precision_policy": "native bf16 on SM80+; fp16+GradScaler on T4/CUDA; fp32 on CPU"
+}

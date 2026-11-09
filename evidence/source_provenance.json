@@ -1,0 +1,74 @@
+[
+  {
+    "path": "phase3/archived_run/high_f1_runner.py",
+    "source_archive": "CS781_Phase3_HighF1_All_Artifacts.zip",
+    "source_member": "high_f1_runner.py",
+    "sha256": "c22773181af1f799d178cf2dd377a88ed1fd24e3aaf0943bbf300f9e7ccbd01c"
+  },
+  {
+    "path": "phase3/archived_run/source_utils.py",
+    "source_archive": "CS781_Phase3_HighF1_All_Artifacts.zip",
+    "source_member": "source_utils.py",
+    "sha256": "c93f56dd2437e5a0817df629148f8b24b7ad02787601f843e864de6f97cf602e"
+  },
+  {
+    "path": "phase4/archived_run/cjpe_runner.py",
+    "source_archive": "CS781_Phase4_All_Artifacts (1).zip",
+    "source_member": "cjpe_runner.py",
+    "sha256": "05e908dda8a9770d7c4834e6dd211c45e29c1002397f520abb0b3f26ed8ae9f9"
+  },
+  {
+    "path": "phase4/archived_run/phase1_utils.py",
+    "source_archive": "CS781_Phase4_All_Artifacts (1).zip",
+    "source_member": "phase1_utils.py",
+    "sha256": "bbf737d6c83037ada449e570fb178d16ebe177a46a0a78a2e2cd5f0f7efb917b"
+  },
+  {
+    "path": "phase4/archived_run/slot06_fast_runner.py",
+    "source_archive": "CS781_Phase4_All_Artifacts (1).zip",
+    "source_member": "slot06_fast_runner.py",
+    "sha256": "ad5d022020035974d474d47778de37a8a7764e5279c8f452ec153fb63bf026ed"
+  },
+  {
+    "path": "phase5/archived_run/lsi_runner.py",
+    "source_archive": "CS781_Phase5_All_Artifacts.zip",
+    "source_member": "lsi_runner.py",
+    "sha256": "afec6e79294b829da2b1bd005c6d4b7b2489dc42436cea4fec3e8c161bf68d23"
+  },
+  {
+    "path": "phase5/archived_run/phase5_utils.py",
+    "source_archive": "CS781_Phase5_All_Artifacts.zip",
+    "source_member": "phase5_utils.py",
+    "sha256": "693a5b3025131c8c832f29e66d0fa22c301b91a9ea6f4898e494e7f0175bf195"
+  },
+  {
+    "path": "phase6/archived_run/summ_runner.py",
+    "source_archive": "CS781_Phase6_All_Artifacts.zip",
+    "source_member": "summ_runner.py",
+    "sha256": "7d407d48c083b27d574dbcbe4771bba96ceef7caa5a2a1b9f2d2fab15eb19698"
+  },
+  {
+    "path": "phase6/archived_run/utils.py",
+    "source_archive": "CS781_Phase6_All_Artifacts.zip",
+    "source_member": "utils.py",
+    "sha256": "d40f4a9ed22a4263010741d731455dfbbdaa2c2e09cd924d6387351fd51a4692"
+  },
+  {
+    "path": "phase7/archived_run/pcr_runner.py",
+    "source_archive": "CS781_Phase7_All_Artifacts.zip",
+    "source_member": "pcr_runner.py",
+    "sha256": "6fe4cc6e63eaa48bfb4db333730abf88914195dacd8f75987779901f3c60bb97"
+  },
+  {
+    "path": "phase7/archived_run/utils.py",
+    "source_archive": "CS781_Phase7_All_Artifacts.zip",
+    "source_member": "utils.py",
+    "sha256": "8f93c038baad25fd863640891ca983e88efd7550d445b3e77879ccd24bfd47e0"
+  },
+  {
+    "path": "phase7/archived_run/evaluate_phase7.py",
+    "source_archive": "CS781_Phase7_All_Artifacts.zip",
+    "source_member": "evaluate_phase7.py",
+    "sha256": "1d8b311201f6938a0e93721fd62c527cd61f2816b6d76c9e115b1084c750ca93"
+  }
+]

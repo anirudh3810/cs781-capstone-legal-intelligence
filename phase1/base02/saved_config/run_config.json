@@ -1,0 +1,96 @@
+{
+  "experiment_id": "phase1_submission02_encoder_decoder",
+  "seed": 781,
+  "execution_mode": "resume_train",
+  "workspace": "/kaggle/working/CS781_Capstone/phase1/submission_02",
+  "input_root": "/kaggle/input",
+  "train_files": [
+    "train_acts.json",
+    "train_high_courts.json",
+    "train_supreme_court.json",
+    "train_tribunals.json"
+  ],
+  "test_file": "Phase1- Test.json",
+  "test_filename_aliases": [
+    "Phase1- Test.json",
+    "test.json"
+  ],
+  "hf_repo_id": "Exploration-Lab/CS-781-Capstone",
+  "hf_allow_patterns": [
+    "*Phase_1_Pretraining/*",
+    "*Phase-1_Pretraining/*"
+  ],
+  "official_file_overrides": {},
+  "training_schema_overrides": {},
+  "test_schema_override": null,
+  "validation_fraction": 0.05,
+  "source_mixing_ratios": {
+    "acts": 0.25,
+    "high_courts": 0.25,
+    "supreme_court": 0.25,
+    "tribunals": 0.25
+  },
+  "corpus_document_cap_per_source": 10000,
+  "corpus_scope_statement": "Training uses a deterministic bounded subset of at most 10,000 documents per source (40,000 before deduplication), not the entire 4.5-billion-token corpus.",
+  "tokenizer_import_path": null,
+  "student_model_source_path": "/kaggle/input/datasets/palakmeena0304/encoder-decoder-llm/encoder_decoder_lm.py",
+  "completed_notebook_path": null,
+  "architecture_record": {
+    "family": "encoder-decoder Transformer",
+    "substantive_difference_from_submission01": "six-layer bidirectional encoder plus six-layer causal decoder with encoder-decoder cross-attention",
+    "parameter_range": [
+      50000000,
+      300000000
+    ],
+    "encoder_layers": 6,
+    "decoder_layers": 6,
+    "hidden_size": 512,
+    "attention_heads": 8,
+    "ffn_size": 2048,
+    "position_representation": "learned_absolute",
+    "normalization": "pre_layer_norm",
+    "activation": "gelu",
+    "embedding_tying": "shared_encoder_decoder_and_output",
+    "max_encoder_length": 1024,
+    "max_decoder_length": 512,
+    "analytical_parameter_count_at_vocab_32000": 61342976,
+    "student_design_rationale": "A 512-wide 6+6 pre-norm Transformer stays above the 50M parameter floor while remaining practical on a 16 GB Kaggle GPU. Training uses 512/256-token pairs, while 1024/512 positional limits provide safer inference headroom. The bidirectional encoder can form a full-prompt legal representation, and every decoder block can retrieve it through cross-attention while preserving causal target prediction."
+  },
+  "innovation_hypothesis": "Compared with the Submission 01 decoder-only baseline, a bidirectional encoder feeding a causal decoder through cross-attention is expected to improve use of long-range facts, parties, provisions, and procedural context in legal continuation. The comparison will use held-out token cross-entropy/perplexity, BERTScore F1, ROUGE-L F1, BLEU-4, and declared repetition diagnostics. The frozen Submission 01 BPE mapping, bounded official corpus, deterministic split, source mixture, scratch training requirement, and evaluation protocol remain controlled; this is a pre-training hypothesis, not a conclusion.",
+  "ablation_control": "Submission 01 decoder-only baseline under a matched data/tokenizer/evaluation protocol",
+  "student_owned_architecture_attestation": true,
+  "student_configuration_confirmed": true,
+  "full_training_authorized": true,
+  "trained_from_scratch_attestation": true,
+  "decoding": {
+    "target_words": 128,
+    "max_new_tokens": 448,
+    "decode_check_interval": 4,
+    "policies": [
+      {
+        "name": "primary_top_k_nucleus",
+        "strategy": "top_k_top_p",
+        "seed": 781,
+        "temperature": 0.85,
+        "top_k": 100,
+        "top_p": 0.92,
+        "repetition_penalty": 1.08,
+        "no_repeat_ngram_size": 4,
+        "min_unique_word_ratio": 0.55,
+        "max_word_fraction": 0.08
+      },
+      {
+        "name": "retry_top_k_nucleus",
+        "strategy": "top_k_top_p",
+        "seed": 1781,
+        "temperature": 0.95,
+        "top_k": 80,
+        "top_p": 0.96,
+        "repetition_penalty": 1.12,
+        "no_repeat_ngram_size": 3,
+        "min_unique_word_ratio": 0.5,
+        "max_word_fraction": 0.1
+      }
+    ]
+  }
+}

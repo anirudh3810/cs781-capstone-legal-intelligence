@@ -1,0 +1,11 @@
+# Python 3.10+; choose the PyTorch build appropriate for the Kaggle CUDA runtime.
+torch>=2.4,<3
+numpy>=1.26,<3
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+tokenizers>=0.20,<1
+huggingface-hub>=0.26,<2
+bert-score>=0.3.13,<0.4
+rouge-score>=0.1.2,<0.2
+nbformat>=5.10,<6
+psutil>=5.9,<8

@@ -1,0 +1,15 @@
+{
+  "completed_step": 10000,
+  "tokens_processed": 203014261,
+  "best_validation_loss": 2.988549116033418,
+  "actual_precision": "fp16",
+  "parallelism": "data_parallel",
+  "gpu_ids": [
+    0,
+    1
+  ],
+  "per_gpu_batch_size": 4,
+  "optimizer_backend": "fused",
+  "latest_checkpoint": "/kaggle/working/CS781_Capstone/phase1/submission_03/checkpoints/checkpoint.latest.pt",
+  "selected_checkpoint": "/kaggle/working/CS781_Capstone/phase1/submission_03/checkpoints/selected_model.pt"
+}

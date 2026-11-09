@@ -1,0 +1,28 @@
+{
+  "logits_shape": [
+    2,
+    13,
+    25000
+  ],
+  "loss": 10.280086517333984,
+  "total": 55113128,
+  "trainable": 55113128,
+  "device": "cuda:0",
+  "closed_form_parameter_count": 55113128,
+  "architecture_family": "efficient causal local/global Transformer",
+  "model_source_sha256": "2dad508c2a84d44237ecb6261ea45358bec36fef92e841393df86047e1e03faa",
+  "model_config": {
+    "vocab_size": 25000,
+    "max_sequence_length": 1536,
+    "hidden_size": 512,
+    "num_layers": 14,
+    "num_query_heads": 8,
+    "num_kv_heads": 2,
+    "intermediate_size": 1536,
+    "local_window": 256,
+    "global_stride": 128,
+    "rope_base": 10000.0,
+    "residual_dropout": 0.05,
+    "tie_embeddings": true
+  }
+}

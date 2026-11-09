@@ -1,0 +1,32 @@
+[
+  {
+    "slot": "01",
+    "queries": 237,
+    "valid": true
+  },
+  {
+    "slot": "02",
+    "queries": 237,
+    "valid": true
+  },
+  {
+    "slot": "03",
+    "queries": 237,
+    "valid": true
+  },
+  {
+    "slot": "04",
+    "queries": 237,
+    "valid": true
+  },
+  {
+    "slot": "05",
+    "queries": 237,
+    "valid": true
+  },
+  {
+    "slot": "06",
+    "queries": 237,
+    "valid": true
+  }
+]

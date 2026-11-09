@@ -1,0 +1,32 @@
+{
+  "logits_shape": [
+    2,
+    7,
+    32000
+  ],
+  "loss": 10.60252571105957,
+  "total": 61342976,
+  "trainable": 61342976,
+  "device": "cuda:0",
+  "architecture_family": "encoder-decoder Transformer",
+  "model_source_sha256": "ad485473a5ac3992a2f19e9667a79b1968312262fb19da5c8eeb80f8300505a2",
+  "model_config": {
+    "architecture": "pre_norm_encoder_decoder_transformer",
+    "vocab_size": 32000,
+    "encoder_layers": 6,
+    "decoder_layers": 6,
+    "hidden_size": 512,
+    "attention_heads": 8,
+    "ffn_size": 2048,
+    "max_encoder_length": 1024,
+    "max_decoder_length": 512,
+    "dropout": 0.1,
+    "attention_dropout": 0.0,
+    "activation": "gelu",
+    "normalization": "pre_layer_norm",
+    "position_representation": "learned_absolute",
+    "embedding_tying": "shared_encoder_decoder_and_output",
+    "layer_norm_epsilon": 1e-05,
+    "initializer_std": 0.02
+  }
+}

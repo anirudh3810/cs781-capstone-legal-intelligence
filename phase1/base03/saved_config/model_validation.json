@@ -1,0 +1,36 @@
+{
+  "logits_shape": [
+    2,
+    13,
+    25000
+  ],
+  "loss": 10.216879844665527,
+  "total": 52206376,
+  "trainable": 52206376,
+  "device": "cuda:0",
+  "analytical_parameter_count": 52206376,
+  "analytical_runtime_match": "PASS",
+  "architecture_family": "single-stack prefix hybrid",
+  "model_source_sha256": "3e1a8995e69e046523ac5eb8980ff9fb6c750c69136a89d0fdcf8ff5083e1470",
+  "model_config": {
+    "architecture": "rope_prefix_hybrid_transformer",
+    "vocab_size": 25000,
+    "max_sequence_length": 1280,
+    "hidden_size": 384,
+    "num_layers": 24,
+    "num_heads": 6,
+    "head_dim": 64,
+    "ffn_size": 1024,
+    "dropout": 0.1,
+    "attention_dropout": 0.0,
+    "normalization": "pre_rms_norm",
+    "normalization_epsilon": 1e-06,
+    "activation": "swiglu",
+    "position_representation": "rope",
+    "rotary_base": 10000.0,
+    "rotary_fraction": 1.0,
+    "tie_word_embeddings": true,
+    "linear_bias": true,
+    "initializer_std": 0.02
+  }
+}
