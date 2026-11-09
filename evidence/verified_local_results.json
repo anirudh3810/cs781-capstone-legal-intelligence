@@ -4,7 +4,7 @@
   "roll": "240131",
   "codabench_username": "a_240131",
   "official_best_scores_verified": true,
-  "official_ranks_verified": false,
+  "official_ranks_verified": true,
   "official_valid_submission_counts_verified": true,
   "phase1": {
     "01": {
@@ -2391,44 +2391,60 @@
         "task": "Legal LM pretraining",
         "primary_metric": "BERTScore F1",
         "best_score": 0.8257,
-        "valid_submissions": 4
+        "valid_submissions": 4,
+        "rank": 115,
+        "leaderboard_submission_id": "958385"
       },
       "2": {
         "task": "Legal NER",
         "primary_metric": "Strict Macro-F1",
         "best_score": 0.5276,
-        "valid_submissions": 6
+        "valid_submissions": 6,
+        "rank": 65,
+        "leaderboard_submission_id": "969333"
       },
       "3": {
         "task": "Rhetorical role prediction",
         "primary_metric": "Macro-F1",
         "best_score": 0.5058,
-        "valid_submissions": 6
+        "valid_submissions": 6,
+        "rank": 59,
+        "leaderboard_submission_id": "978994"
       },
       "4": {
         "task": "Court judgment prediction",
         "primary_metric": "Macro-F1",
         "best_score": 0.7553,
-        "valid_submissions": 6
+        "valid_submissions": 6,
+        "rank": 43,
+        "leaderboard_submission_id": "999988"
       },
       "5": {
         "task": "Legal statute identification",
         "primary_metric": "Macro-F1",
         "best_score": 0.3777,
-        "valid_submissions": 6
+        "valid_submissions": 6,
+        "rank": 62,
+        "leaderboard_submission_id": "1013465"
       },
       "6": {
         "task": "Abstractive summarization",
         "primary_metric": "BERTScore F1",
         "best_score": 0.8234,
-        "valid_submissions": 6
+        "valid_submissions": 6,
+        "rank": 116,
+        "leaderboard_submission_id": "1022447"
       },
       "7": {
         "task": "Prior Case Retrieval (PCR)",
         "primary_metric": "Micro-F1@7",
         "best_score": 0.3077,
-        "valid_submissions": 7
+        "valid_submissions": 7,
+        "rank": 101,
+        "leaderboard_submission_id": "1040191"
       }
     }
-  }
+  },
+  "official_rank_source": "https://www.codabench.org/competitions/18186/#/results-tab",
+  "official_rank_observed_at_utc": "2026-11-09T17:10:18.512495+00:00"
 }

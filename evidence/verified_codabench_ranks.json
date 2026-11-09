@@ -1,0 +1,79 @@
+{
+  "source_url": "https://www.codabench.org/competitions/18186/#/results-tab",
+  "observed_at_utc": "2026-11-09T17:10:18.512495+00:00",
+  "participant": "a_240131",
+  "verification_method": "Read each phase's Task heading and the participant row in the rendered public leaderboard, with all rows displayed.",
+  "rank_definition": "Displayed participant rank in the phase's Competition Ranking table; ranks may change with new submissions.",
+  "phases": {
+    "1": {
+      "participant": "a_240131",
+      "phase_heading_verified": true,
+      "phase_heading": "Phase 1 \u00e2\u20ac\u201c Legal Language Model Pretraining",
+      "rank": 115,
+      "score": 0.8257,
+      "submission_id": "958385",
+      "submission_date_displayed": "2026-10-03 16:04",
+      "displayed_participants": 142
+    },
+    "2": {
+      "participant": "a_240131",
+      "phase_heading_verified": true,
+      "phase_heading": "Phase 2 \u00e2\u20ac\u201c Legal Named Entity Recognition (L-NER)",
+      "rank": 65,
+      "score": 0.5276,
+      "submission_id": "969333",
+      "submission_date_displayed": "2026-10-08 19:02",
+      "displayed_participants": 134
+    },
+    "3": {
+      "participant": "a_240131",
+      "phase_heading_verified": true,
+      "phase_heading": "Phase 3 \u00e2\u20ac\u201c Rhetorical Role Prediction (RR)",
+      "rank": 59,
+      "score": 0.5058,
+      "submission_id": "978994",
+      "submission_date_displayed": "2026-10-12 02:17",
+      "displayed_participants": 135
+    },
+    "4": {
+      "participant": "a_240131",
+      "phase_heading_verified": true,
+      "phase_heading": "Phase 4 \u00e2\u20ac\u201c Court Judgment Prediction (CJPE)",
+      "rank": 43,
+      "score": 0.7553,
+      "submission_id": "999988",
+      "submission_date_displayed": "2026-10-18 04:30",
+      "displayed_participants": 136
+    },
+    "5": {
+      "participant": "a_240131",
+      "phase_heading_verified": true,
+      "phase_heading": "Phase 5 \u00e2\u20ac\u201c Legal Statute Identification (LSI)",
+      "rank": 62,
+      "score": 0.3777,
+      "submission_id": "1013465",
+      "submission_date_displayed": "2026-10-27 21:04",
+      "displayed_participants": 135
+    },
+    "6": {
+      "participant": "a_240131",
+      "phase_heading_verified": true,
+      "phase_heading": "Phase 6 \u00e2\u20ac\u201c Abstractive Summarization",
+      "rank": 116,
+      "score": 0.8234,
+      "submission_id": "1022447",
+      "submission_date_displayed": "2026-10-31 04:04",
+      "displayed_participants": 133
+    },
+    "7": {
+      "participant": "a_240131",
+      "phase_heading_verified": true,
+      "phase_heading": "Phase 7 \u00e2\u20ac\u201d Prior Case Retrieval (PCR)",
+      "rank": 101,
+      "score": 0.3077,
+      "submission_id": "1040191",
+      "submission_date_displayed": "2026-11-07 17:37",
+      "displayed_participants": 134
+    }
+  }
+}

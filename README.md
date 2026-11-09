@@ -20,6 +20,22 @@ Use the self-contained notebooks in the table below on Kaggle. Their cells write
 
 The table above reports both **Official Codabench Best Scores** (recorded on 9 November 2026 across 41 valid submissions) and local validation evidence. Selection of a final official winner remains provisional. All available alternatives are included, so the officially winning variant can be selected without omitting its code. The machine-readable selection record is [evidence/selected_models.json](evidence/selected_models.json).
 
+## Verified phase ranks
+
+The rows below were read from the actual phase leaderboards for `a_240131` on 9 November 2026. Ranks may change as new submissions are scored.
+
+| Phase | Official score | Rank | Submission ID |
+|---|---:|---:|---:|
+| 1 | 0.8257 | 115 | 958385 |
+| 2 | 0.5276 | 65 | 969333 |
+| 3 | 0.5058 | 59 | 978994 |
+| 4 | 0.7553 | 43 | 999988 |
+| 5 | 0.3777 | 62 | 1013465 |
+| 6 | 0.8234 | 116 | 1022447 |
+| 7 | 0.3077 | 101 | 1040191 |
+
+Source: [Codabench phase results](https://www.codabench.org/competitions/18186/#/results-tab).
+
 ## Repository structure
 
 ```text
