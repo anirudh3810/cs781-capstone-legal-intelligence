@@ -29,7 +29,7 @@
     {
       "phase": 5,
       "variant": "01",
-      "basis": "highest saved holdout and dev macro F1 among archived completed reports",
+      "basis": "highest saved holdout and dev macro F1 among all six completed archived reports",
       "entry": "phase5/archived_run/CS781_Phase5_Six_Submissions_RunAll.ipynb"
     },
     {

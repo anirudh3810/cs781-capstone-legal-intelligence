@@ -93,7 +93,18 @@ The archive has no completed outer folds: `PROVISIONAL_0_FOLDS` is a real limita
 
 ### Phase 5: statute identification
 
-The encoder processes four 512-token chunks per training case and up to twelve at inference, including statute-cue windows. A chunk Transformer feeds a global multi-label head and label-specific max evidence. Independent sigmoid scores are decoded with calibrated thresholds. Repeated statute IDs in the released data are deduplicated by the archived parser. Among the four completed archived reports, partial base03 (slot01) is strongest. Standalone packages 05/06 are present locally but their final reports are absent from the supplied recovery; their final training metrics are not fabricated.
+The encoder processes four 512-token chunks per training case and up to twelve at inference, including statute-cue windows. A chunk Transformer feeds a global multi-label head and label-specific max evidence. Independent sigmoid scores are decoded with calibrated thresholds. Repeated statute IDs in the released data are deduplicated by the archived parser. The updated recovery contains six completed reports and six distinct prediction packages. Partial base03 (slot01) remains strongest on holdout and selected dev macro F1. Distilled base03 (slot06, the last submission) achieves a close holdout macro F1 of 0.376503 (micro F1 0.478877) with higher subset accuracy (0.045151 vs 0.041427) and 32.0% fewer trainable parameters (15.08M vs 22.18M).
+
+| Slot | Method / base | Holdout macro F1 | Holdout micro F1 | Holdout subset acc | Selected dev macro F1 | Trainable parameters | Selected final epoch |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 01 | Partial / B03 | 0.379343 | 0.481324 | 0.041427 | 0.385573 | 22,175,306 | 7 |
+| 02 | Full / B01 | 0.374302 | 0.482138 | 0.046858 | 0.382241 | 82,994,378 | 6 |
+| 03 | LoRMA / B04 | 0.343317 | 0.448398 | 0.033514 | 0.348887 | 1,863,370 | 7 |
+| 04 | Adapters / B02 | 0.327873 | 0.432402 | 0.029015 | 0.329778 | 1,313,866 | 6 |
+| 05 | Adaptive rank / B03 | 0.343392 | 0.452210 | 0.040807 | 0.343983 | 1,868,426 | 7 |
+| 06 | Distillation / B03 | 0.376503 | 0.478877 | 0.045151 | 0.380021 | 15,078,474 | 7 |
+
+These local evaluations remain separate from official Codabench scores. Each method's test package covers 13,019 cases.
 
 Use the `archived_run` notebook for the saved data parser. The current workspace source rejects duplicate IDs and is retained for comparison. The archived notebook embeds the saved parser and helpers.
 

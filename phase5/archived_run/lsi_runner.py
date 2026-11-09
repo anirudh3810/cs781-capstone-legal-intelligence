@@ -137,9 +137,9 @@ def parse_split(name):
             labels=item[label_keys[0]]
             if not isinstance(labels,list) or any(type(x) is not int or x<0 for x in labels):
                 raise ValueError(f'{name} row {i}: labels must be a nonnegative integer list')
-            if len(labels) != len(set(labels)):
-                print(f'[DATA WARNING] {name} row {i}: removed {len(labels) - len(set(labels))} duplicate statute IDs', flush=True)
-            labels = sorted(set(labels))
+            if len(labels)!=len(set(labels)):
+                labels=list(dict.fromkeys(labels))
+            labels=sorted(labels)
         rows.append({'id':f'{name}::row::{i:08d}','source_id':case_id,'text':content,'labels':labels})
     if name=='test':
         keys=[(type(r['source_id']).__name__,str(r['source_id'])) for r in rows]

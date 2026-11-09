@@ -33,13 +33,13 @@
     "path": "phase5/archived_run/lsi_runner.py",
     "source_archive": "CS781_Phase5_All_Artifacts.zip",
     "source_member": "lsi_runner.py",
-    "sha256": "afec6e79294b829da2b1bd005c6d4b7b2489dc42436cea4fec3e8c161bf68d23"
+    "sha256": "f0bbe8030dca74d0eba840f02ae4b8ff2862f474271aa62bffab9d60d364a95b"
   },
   {
     "path": "phase5/archived_run/phase5_utils.py",
     "source_archive": "CS781_Phase5_All_Artifacts.zip",
     "source_member": "phase5_utils.py",
-    "sha256": "693a5b3025131c8c832f29e66d0fa22c301b91a9ea6f4898e494e7f0175bf195"
+    "sha256": "2c8cb0f6bc0d0e159a779ba8fdd563507b10b68807bf77137e18d1d158d5a834"
   },
   {
     "path": "phase6/archived_run/summ_runner.py",
