@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-19",
+  "added_files": [],
+  "scope": "Curated seven-phase code plus final report and LaTeX sources, project notebook/source archive and reference slides",
+  "excluded": [
+    "Restricted official datasets",
+    "Large recovery/all-artifact archives containing restricted data or model weights",
+    "Virtual environments and installed tools",
+    "Personal resumes and application shortcuts",
+    "Temporary rendering output"
+  ]
+}

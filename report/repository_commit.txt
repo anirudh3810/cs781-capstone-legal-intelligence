@@ -1,0 +1,5 @@
+Repository: https://github.com/anirudh3810/cs781-capstone-legal-intelligence
+Visibility: public
+Branch: main
+Commit: dc38b23b4713dea43361c34ba6c94a4076911e22
+Verified: 2026-11-09

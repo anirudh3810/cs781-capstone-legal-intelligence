@@ -1,0 +1,17 @@
+\subsection{What the metrics do not measure}
+The metrics capture only part of what a legal system needs to do. BERTScore measures contextual similarity and ROUGE measures lexical overlap~\cite{zhang2020bertscore,lin2004rouge}; neither checks whether the conclusion, citation or remedy is legally correct. Strict span F1 gives no partial credit for a nearly correct boundary. Macro F1 gives rare labels equal weight, but changes when absent labels are included or excluded. Retrieval micro F1@7 counts relevant pairs without distinguishing binding authority from a related case. Human legal review would still be needed.
+
+\subsection{Limitations and what you would do next}
+The official scores and ranks have been checked, but the local validation is incomplete in places. Phase~4 has no completed outer folds. The Phase~7 recovery is older than its standalone slot~05 package and has no final audit. All four foundation notebooks and the available alternatives are included, with archived runtimes kept where they differ from local files.
+
+The next experiments should target these gaps: exact boundary generation for NER, whole-document generalization for roles and judgments, label-count control for statutes, and source/target budgets for summaries. Retrieval should complete its audit, then compare sparse, dense and fused rankings with the encoder held fixed.
+
+\subsection{Surprising findings}
+The results that did not improve were as useful as the gains. The NER reranker loses to calibrated raw V3 candidates. Role transitions look slightly better on the small dev set but worse on document OOF. The retrieval gold-only control overtakes KD at the second pass. Together, these results show why added complexity needs a matched comparison before it becomes part of the final system.
+
+\section{Conclusion}
+The project shows what can be built from four compact legal foundations under a fixed data and compute budget. Exact boundaries matter for NER, document context matters for roles, and lexical coverage remains useful for retrieval. Summarization has a completed independent audit; other tasks need stronger held-out checks. Across the experiments, more training and more elaborate decoding did not consistently produce better results. The most useful changes addressed a specific failure and were evaluated against a clearly defined baseline.
+
+\par
+\label{LastMainPage}
+\typeout{MAIN_BODY_END_PAGE:\thepage}

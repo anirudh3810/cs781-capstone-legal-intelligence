@@ -1,0 +1,13 @@
+# Phase 5 Run All notebook
+
+Open `../CS781_Phase5_Six_Submissions_RunAll.ipynb` on Kaggle and select the two-GPU accelerator. Attach the four original Phase 1 recovery archives. Enable Internet and a Kaggle Secret named `HF_TOKEN` that can read the official gated course dataset, or attach the three official Phase 5 JSON files. Choose **Run All**.
+
+The notebook embeds `utils.py` and `lsi_runner.py`; no separate source upload is needed. It creates six method-specific ZIPs named `CS781_Phase5_Submission_01.zip` through `_06.zip`, each containing only root-level `prediction.json`. It also rebuilds `CS781_Phase5_All_Artifacts.zip` after every training segment and package. The archive includes official data, Phase 1 sources and selected checkpoints, training states, method checkpoints, resumable teacher logits, metrics, test probabilities, code, and completed submissions. Token caches are regenerated from the archived inputs on restore.
+
+Every distributed training command stops at a synchronized optimizer step after roughly 20 minutes or at the end of an epoch. Distillation teacher extraction also pauses and resumes in roughly 20-minute segments. The parent notebook then builds the recovery ZIP **after both GPU workers exit**. It stops near the Kaggle session limit; download/save the latest all-artifacts ZIP, attach it as a Kaggle Input in another session alongside the four Phase 1 recoveries, and Run All again. A Kaggle draft session that dies before its latest archive is downloaded or saved can still lose that recent work.
+
+The six experiments are Phase 1 base-03 partial tuning, base-01 full tuning, base-04 LORMA, base-02 bottleneck adapters, base-03 AdaLoRA, and base-03 distillation from the stage-matched base-01 teacher. A grouped holdout is scored separately from the official dev set. The latter selects final checkpoints and thresholds, so its displayed F1 is selection-biased. Private F1 is unknown until Codabench scores the ZIPs. Submit the ZIPs manually and record their scores.
+
+Local checks: `python -m py_compile phase5/*.py`, `python phase5/build_notebook.py`, and `python phase5/test_lsi_runner.py`. The smoke test loads the real four Phase 1 checkpoints, runs forward/backward for all six methods on synthetic cases, verifies a submission ZIP, and verifies a small recovery archive. The local machine has no CUDA GPUs, so real data training, two-GPU throughput, and official evaluator agreement remain to be checked on Kaggle after Phase 5 is released.
+
+The model architecture and training code are AI-assisted. Disclose that truthfully in the course's LLM-use declaration and final report.

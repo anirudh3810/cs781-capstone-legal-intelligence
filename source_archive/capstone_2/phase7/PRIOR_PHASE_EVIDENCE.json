@@ -1,0 +1,1054 @@
+{
+  "review_date_ist": "2026-11-05",
+  "phase7_data_present": false,
+  "private_scores_are_not_inferred_from_local_metrics": true,
+  "phase1": {
+    "01": {
+      "archive": "phase1_submission01_recovery.zip",
+      "architecture": {
+        "family": "decoder-only causal Transformer",
+        "intervention": "SwiGLU feed-forward sublayer",
+        "normalization": "Pre-LayerNorm",
+        "position_encoding": "learned absolute embeddings",
+        "embedding_tying": true,
+        "blocks": 8,
+        "hidden_size": 768,
+        "heads": 12,
+        "ffn_hidden_size": 2048,
+        "context_length": 1024,
+        "parameter_range": [
+          50000000,
+          300000000
+        ]
+      },
+      "model_config": null,
+      "completed_pretraining_steps": 12000
+    },
+    "02": {
+      "archive": "phase1_submission02_recovery.zip",
+      "architecture": {
+        "family": "encoder-decoder Transformer",
+        "substantive_difference_from_submission01": "six-layer bidirectional encoder plus six-layer causal decoder with encoder-decoder cross-attention",
+        "parameter_range": [
+          50000000,
+          300000000
+        ],
+        "encoder_layers": 6,
+        "decoder_layers": 6,
+        "hidden_size": 512,
+        "attention_heads": 8,
+        "ffn_size": 2048,
+        "position_representation": "learned_absolute",
+        "normalization": "pre_layer_norm",
+        "activation": "gelu",
+        "embedding_tying": "shared_encoder_decoder_and_output",
+        "max_encoder_length": 1024,
+        "max_decoder_length": 512,
+        "analytical_parameter_count_at_vocab_32000": 61342976,
+        "student_design_rationale": "A 512-wide 6+6 pre-norm Transformer stays above the 50M parameter floor while remaining practical on a 16 GB Kaggle GPU. Training uses 512/256-token pairs, while 1024/512 positional limits provide safer inference headroom. The bidirectional encoder can form a full-prompt legal representation, and every decoder block can retrieve it through cross-attention while preserving causal target prediction."
+      },
+      "model_config": {
+        "architecture": "pre_norm_encoder_decoder_transformer",
+        "vocab_size": 32000,
+        "encoder_layers": 6,
+        "decoder_layers": 6,
+        "hidden_size": 512,
+        "attention_heads": 8,
+        "ffn_size": 2048,
+        "max_encoder_length": 1024,
+        "max_decoder_length": 512,
+        "dropout": 0.1,
+        "attention_dropout": 0.0,
+        "activation": "gelu",
+        "normalization": "pre_layer_norm",
+        "position_representation": "learned_absolute",
+        "embedding_tying": "shared_encoder_decoder_and_output",
+        "layer_norm_epsilon": 1e-05,
+        "initializer_std": 0.02
+      },
+      "completed_pretraining_steps": 12000
+    },
+    "03": {
+      "archive": "phase1_submission03_recovery.zip",
+      "architecture": {
+        "family": "single-stack bidirectional-prefix / causal-continuation hybrid",
+        "substantive_difference_from_submission01": "the prompt segment is bidirectional rather than globally causal",
+        "substantive_difference_from_submission02": "one shared Transformer stack and one segment-aware self-attention mask; no separate encoder/decoder and no cross-attention",
+        "attention_semantics": "prefix queries attend to all valid prefix keys; continuation queries attend to all valid prefix keys and continuation keys at or before the query",
+        "parameter_range": [
+          50000000,
+          300000000
+        ],
+        "student_model_config": {
+          "vocab_size": 25000,
+          "max_sequence_length": 1280,
+          "hidden_size": 384,
+          "num_layers": 24,
+          "num_heads": 6,
+          "head_dim": 64,
+          "ffn_size": 1024,
+          "dropout": 0.1,
+          "normalization": "pre_rms_norm",
+          "activation": "swiglu",
+          "position_representation": "rope",
+          "tie_word_embeddings": true
+        },
+        "student_exact_parameter_derivation": "For V=25,000, H=384, I=1,024, L=24: tied token embedding = V*H = 9,600,000; each block = attention 4*(H*H+H) = 591,360 + SwiGLU [2*(H*I+I)+(I*H+H)] = 1,182,080 + two RMSNorm vectors 2H = 768, giving 1,774,208 per block and 42,580,992 across 24 blocks; final RMSNorm = 384; vocabulary bias = 25,000; total = 52,206,376 trainable parameters. RoPE and tied output weights add no trainable parameters.",
+        "student_design_rationale": "A 384-dimensional residual stream reduces the information bottleneck while retaining a deep 24-block shared network within the parameter floor. Six heads give a conventional, tensor-core-friendly 64-dimensional head for full RoPE. Pre-RMSNorm, SwiGLU, scaled residual initialization, mixed precision, and balanced two-T4 data parallel batches are used for stable, compute-efficient scratch training."
+      },
+      "model_config": {
+        "architecture": "rope_prefix_hybrid_transformer",
+        "vocab_size": 25000,
+        "max_sequence_length": 1280,
+        "hidden_size": 384,
+        "num_layers": 24,
+        "num_heads": 6,
+        "head_dim": 64,
+        "ffn_size": 1024,
+        "dropout": 0.1,
+        "attention_dropout": 0.0,
+        "normalization": "pre_rms_norm",
+        "normalization_epsilon": 1e-06,
+        "activation": "swiglu",
+        "position_representation": "rope",
+        "rotary_base": 10000.0,
+        "rotary_fraction": 1.0,
+        "tie_word_embeddings": true,
+        "linear_bias": true,
+        "initializer_std": 0.02
+      },
+      "completed_pretraining_steps": 10000
+    },
+    "04": {
+      "archive": "phase1_submission04_recovery.zip",
+      "architecture": {
+        "family": "efficient causal local/global attention Transformer",
+        "substantive_difference": "bounded local causal attention plus explicitly routed global information, grouped-query key/value sharing and a measured cache footprint",
+        "position_representation": "RoPE applied to attention queries and keys",
+        "tokenizer": "new 25k byte-level BPE trained on the selected official training split only; RoPE is positional encoding",
+        "parameter_range": [
+          50000000,
+          300000000
+        ],
+        "student_model_config": "14 pre-RMSNorm decoder blocks, width 512, 8 query/2 KV heads, head width 64, SwiGLU width 1536, tied 25k token embeddings, RoPE, local window 256 plus every-128th causal global anchor, maximum 1536 positions",
+        "student_exact_parameter_derivation": "For V=25000: embedding V*512=12,800,000; each block attention=656,640, SwiGLU=2,362,880, two RMSNorms=1,024, so 14*3,020,544=42,287,616; final norm=512 and output bias=25,000; total=55,113,128 trainable parameters. Recompute with the actual BPE size.",
+        "student_design_rationale": "A 14-layer 55.1M-parameter model balances depth against T4 throughput; grouped-query sharing reduces KV cache by 4x versus 8 KV heads; local/global causal visibility retains nearby detail and sparse long-range anchors. SDPA runs full-sequence attention efficiently; bounded KV cache accelerates autoregressive generation. This AI-assisted design must be disclosed, not attested as independently student-authored.",
+        "authorship_disclosure": "AI-assisted architecture and implementation; student-owned attestation remains false pending course-approved independent revision"
+      },
+      "model_config": {
+        "vocab_size": 25000,
+        "max_sequence_length": 1536,
+        "hidden_size": 512,
+        "num_layers": 14,
+        "num_query_heads": 8,
+        "num_kv_heads": 2,
+        "intermediate_size": 1536,
+        "local_window": 256,
+        "global_stride": 128,
+        "rope_base": 10000.0,
+        "residual_dropout": 0.05,
+        "tie_embeddings": true
+      },
+      "completed_pretraining_steps": 15000
+    }
+  },
+  "phase2": {
+    "source": "CS781_Phase2_Span_V3_Report.zip:report.json",
+    "v2_oof": 0.45297112108361587,
+    "v3_hybrid_selected_oof": 0.48582884848167085,
+    "selected_fold_epochs": {
+      "0": 24,
+      "1": 18,
+      "2": 24
+    },
+    "note": "Selection used these folds; selected OOF is not an untouched estimate."
+  },
+  "phase3": {
+    "primary_oof_macro_f1": 0.4241475390156687,
+    "official_dev_macro_f1": 0.5333490999579209,
+    "private_score": null,
+    "source": "CS781_Phase3_HighF1_All_Artifacts.zip:report.json"
+  },
+  "phase4": {
+    "source": "CS781_Phase4_All_Artifacts (1).zip",
+    "completed_submission_reports": [
+      {
+        "slot": "01",
+        "base": "01",
+        "method": "full",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "dev_macro_f1": 0.7296975279610435,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "02",
+        "base": "03",
+        "method": "partial",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "dev_macro_f1": 0.7551014335010813,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "03",
+        "base": "04",
+        "method": "lorma",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "dev_macro_f1": 0.6652585953570379,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "04",
+        "base": "02",
+        "method": "adalora",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "dev_macro_f1": 0.6123464628800475,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "05",
+        "base": "03",
+        "method": "adapters",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "dev_macro_f1": 0.7446491690124211,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "06",
+        "base": "03",
+        "method": "distill",
+        "validation_status": "PROVISIONAL_0_FOLDS",
+        "dev_macro_f1": 0.687701741479778,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": null
+      }
+    ],
+    "histories": {
+      "runs/01/final/history.json": {
+        "evaluations": 1,
+        "epochs": [
+          1
+        ],
+        "reported_best_epochs": [
+          1
+        ]
+      },
+      "runs/02/final/history.json": {
+        "evaluations": 6,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "runs/03/final/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      "runs/04/final/history.json": {
+        "evaluations": 8,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "reported_best_epochs": [
+          1,
+          1,
+          3,
+          3,
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      "runs/05/final/history.json": {
+        "evaluations": 10,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          5,
+          7,
+          7,
+          7,
+          7
+        ]
+      },
+      "runs/06/final/history.json": {
+        "evaluations": 5,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "data_audit": {
+      "label_counts": {
+        "train": {
+          "0": 22067,
+          "1": 15320
+        },
+        "dev": {
+          "0": 1749,
+          "1": 1756
+        }
+      },
+      "lengths": {
+        "train": {
+          "count": 37387,
+          "characters_median": 13023,
+          "characters_p95": 54753
+        },
+        "dev": {
+          "count": 3505,
+          "characters_median": 16988,
+          "characters_p95": 56223
+        },
+        "test": {
+          "count": 1517,
+          "characters_median": 17320,
+          "characters_p95": 58170
+        }
+      },
+      "exact_duplicate_counts": {
+        "train": 5735,
+        "dev": 994,
+        "test": 0
+      },
+      "repeated_source_id_rows": {
+        "train": 5082,
+        "dev": 994,
+        "test": 0
+      },
+      "case_groups_train": 31652,
+      "validation_group_mode": "case_id_and_exact_text",
+      "majority_accuracy_dev": 0.5009985734664765,
+      "train_case_count": 37387,
+      "dev_case_count": 3505,
+      "test_case_count": 1517,
+      "test_id_sha256": "f720955a95074f8cf5901cc5860e92b63fb4056d73409508436580331fff2b3b",
+      "private_score": null
+    }
+  },
+  "phase5": {
+    "source": "CS781_Phase5_All_Artifacts.zip",
+    "completed_submission_reports": [
+      {
+        "slot": "01",
+        "base": "03",
+        "method": "partial",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": 0.3793425322529748
+      },
+      {
+        "slot": "02",
+        "base": "01",
+        "method": "full",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": 0.37430155468858495
+      },
+      {
+        "slot": "03",
+        "base": "04",
+        "method": "lorma",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": 0.34331735079757136
+      },
+      {
+        "slot": "04",
+        "base": "02",
+        "method": "adapters",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": null,
+        "fit_best_bertscore_sample": null,
+        "private_score": null,
+        "holdout_macro_f1": 0.32787259399866536
+      }
+    ],
+    "histories": {
+      "runs/01/final/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "runs/01/holdout/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "runs/02/final/history.json": {
+        "evaluations": 6,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "runs/02/holdout/history.json": {
+        "evaluations": 6,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          5
+        ]
+      },
+      "runs/03/final/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "runs/03/holdout/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          5,
+          5
+        ]
+      },
+      "runs/04/final/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          6
+        ]
+      },
+      "runs/04/holdout/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "runs/05/holdout/history.json": {
+        "evaluations": 2,
+        "epochs": [
+          1,
+          2
+        ],
+        "reported_best_epochs": [
+          1,
+          2
+        ]
+      }
+    },
+    "data_audit": {
+      "counts": {
+        "train": 42750,
+        "dev": 10181,
+        "test": 13019
+      },
+      "label_count": 100,
+      "train_positive_counts": {
+        "3": 453,
+        "9": 823,
+        "69": 642,
+        "5": 11730,
+        "81": 1321,
+        "94": 3835,
+        "7": 1037,
+        "10": 4134,
+        "17": 831,
+        "88": 1661,
+        "15": 336,
+        "16": 665,
+        "71": 2303,
+        "72": 1031,
+        "74": 319,
+        "77": 4046,
+        "40": 543,
+        "43": 7728,
+        "44": 3660,
+        "45": 2618,
+        "46": 2509,
+        "48": 585,
+        "49": 380,
+        "50": 318,
+        "65": 351,
+        "91": 1327,
+        "78": 1739,
+        "96": 1973,
+        "29": 497,
+        "92": 309,
+        "12": 4324,
+        "13": 4136,
+        "14": 3818,
+        "34": 10380,
+        "37": 1269,
+        "38": 1713,
+        "75": 485,
+        "33": 1483,
+        "35": 3157,
+        "30": 3009,
+        "39": 7120,
+        "97": 7880,
+        "47": 879,
+        "53": 1276,
+        "31": 1138,
+        "32": 385,
+        "67": 1093,
+        "83": 980,
+        "99": 674,
+        "64": 632,
+        "86": 363,
+        "89": 2113,
+        "90": 2066,
+        "55": 1787,
+        "52": 1084,
+        "19": 523,
+        "23": 304,
+        "25": 287,
+        "61": 3723,
+        "62": 473,
+        "85": 1549,
+        "51": 3184,
+        "66": 309,
+        "8": 349,
+        "11": 615,
+        "21": 684,
+        "22": 527,
+        "20": 487,
+        "28": 602,
+        "6": 698,
+        "4": 341,
+        "70": 1360,
+        "84": 272,
+        "41": 821,
+        "60": 358,
+        "26": 1909,
+        "1": 1035,
+        "63": 1658,
+        "36": 569,
+        "54": 2204,
+        "27": 329,
+        "24": 469,
+        "73": 591,
+        "59": 310,
+        "93": 564,
+        "58": 1431,
+        "95": 375,
+        "42": 566,
+        "98": 490,
+        "87": 607,
+        "80": 573,
+        "18": 393,
+        "76": 530,
+        "68": 629,
+        "57": 434,
+        "0": 343,
+        "2": 367,
+        "79": 436,
+        "82": 604,
+        "56": 558
+      },
+      "dev_only_labels": [],
+      "labels_per_document": {
+        "train": {
+          "median": 3.0,
+          "p95": 8.0
+        },
+        "dev": {
+          "median": 3.0,
+          "p95": 9.0
+        }
+      },
+      "character_lengths": {
+        "train": {
+          "median": 2717,
+          "p95": 23797
+        },
+        "dev": {
+          "median": 3418,
+          "p95": 25751
+        },
+        "test": {
+          "median": 3368,
+          "p95": 24697
+        }
+      },
+      "duplicate_texts": {
+        "train": 435,
+        "dev": 63,
+        "test": 80
+      },
+      "group_mode": "id_and_exact_text",
+      "split_counts": {
+        "0": 31994,
+        "1": 4311,
+        "2": 6445
+      },
+      "private_score": null
+    }
+  },
+  "phase6": {
+    "source": "CS781_Phase6_All_Artifacts.zip",
+    "completed_submission_reports": [
+      {
+        "slot": "01",
+        "base": "02",
+        "method": "lora",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": 4,
+        "fit_best_bertscore_sample": 0.8219199776649475,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "02",
+        "base": "03",
+        "method": "adalora",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": 3,
+        "fit_best_bertscore_sample": 0.8253376483917236,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "03",
+        "base": "04",
+        "method": "lorma",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": 4,
+        "fit_best_bertscore_sample": 0.8197689652442932,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "04",
+        "base": "01",
+        "method": "houlsby",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": 2,
+        "fit_best_bertscore_sample": 0.8228533267974854,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "05",
+        "base": "02",
+        "method": "pfeiffer",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": 5,
+        "fit_best_bertscore_sample": 0.822398841381073,
+        "private_score": null,
+        "holdout_macro_f1": null
+      },
+      {
+        "slot": "06",
+        "base": "03",
+        "method": "distill",
+        "validation_status": null,
+        "dev_macro_f1": null,
+        "fit_best_epoch": 4,
+        "fit_best_bertscore_sample": 0.8239527344703674,
+        "private_score": null,
+        "holdout_macro_f1": null
+      }
+    ],
+    "histories": {
+      "runs/01/fit/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "runs/02/fit/history.json": {
+        "evaluations": 6,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "reported_best_epochs": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "runs/03/fit/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "runs/04/fit/history.json": {
+        "evaluations": 5,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "reported_best_epochs": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "runs/05/fit/history.json": {
+        "evaluations": 8,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "reported_best_epochs": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "runs/06/fit/history.json": {
+        "evaluations": 7,
+        "epochs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "reported_best_epochs": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "data_audit": {
+      "train": 7028,
+      "test": 100,
+      "split_counts": {
+        "0": 6324,
+        "1": 352,
+        "2": 352
+      },
+      "document_characters": {
+        "median": 17911,
+        "p95": 64895
+      },
+      "summary_words": {
+        "median": 638,
+        "p95": 2010
+      },
+      "duplicate_documents": 27,
+      "private_score": null
+    },
+    "final_status": "SIX_DISTINCT_PACKAGES_READY",
+    "recommended_slot": "02",
+    "full_tune_bertscore_f1": 0.8253008127212524,
+    "untouched_audit_metric": {
+      "bertscore_f1": 0.826237142086029,
+      "bertscore_precision": 0.8351741433143616,
+      "bertscore_recall": 0.8175666928291321,
+      "rouge1_f1": 0.4003788771500643,
+      "rougeL_f1": 0.21156958718240526,
+      "cases": 352,
+      "predicted_words_mean": 398.1761363636364,
+      "reference_words_mean": 858.9261363636364
+    },
+    "target_truncation": {
+      "1": {
+        "base": "01",
+        "selection_policy": "section",
+        "source_median": 544,
+        "source_p95": 544,
+        "target_median": 480,
+        "target_p95": 480,
+        "targets_truncated": 5427
+      },
+      "2": {
+        "base": "02",
+        "selection_policy": "section",
+        "source_median": 984,
+        "source_p95": 984,
+        "target_median": 480,
+        "target_p95": 480,
+        "targets_truncated": 5406
+      },
+      "3": {
+        "base": "03",
+        "selection_policy": "section",
+        "source_median": 784,
+        "source_p95": 784,
+        "target_median": 480,
+        "target_p95": 480,
+        "targets_truncated": 5430
+      },
+      "4": {
+        "base": "04",
+        "selection_policy": "section",
+        "source_median": 1024,
+        "source_p95": 1024,
+        "target_median": 480,
+        "target_p95": 480,
+        "targets_truncated": 5429
+      }
+    }
+  },
+  "phase7_evaluator": {
+    "source": "https://drive.google.com/file/d/19Raf18n0ysaIsvaMOwtt56az7qpF-lOC/view",
+    "sha256": "1d8b311201f6938a0e93721fd62c527cd61f2816b6d76c9e115b1084c750ca93",
+    "bytes": 6262,
+    "k": 7,
+    "formula": "2 * TP / (7 * number_of_queries + total_gold_labels)",
+    "prediction_format": "JSON object mapping query ID strings to seven unique candidate ID strings"
+  }
+}

@@ -1,0 +1,45 @@
+\section*{LLM Usage Declaration}
+
+\noindent\textbf{Q1.} Which Large Language Model(s), if any, did you use while completing the competition or writing this report?
+
+\noindent\textbf{Answer:} I used GPT Sol 6 (OpenAI) to understand the project's concepts, discuss architecture and training plans, and interpret experimental results. It also assisted with implementation, debugging and report preparation, as recorded below. The downstream task models used the project's Phase~1 checkpoints rather than an external generative model as their backbone.
+
+\medskip
+\noindent\textbf{Q2.} For each row, mark Yes or No and state the purpose in one short phrase.
+
+{\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.9cm}>{\centering\arraybackslash}p{1.25cm}>{\raggedright\arraybackslash}p{9.7cm}}
+\toprule
+Part & Used LLM? & Purpose of using the LLM\\
+\midrule
+\endfirsthead
+\toprule
+Part & Used LLM? & Purpose of using the LLM\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Understanding concepts / papers & Yes & Explanations of byte-level BPE and character offsets; causal, encoder--decoder and prefix attention; RoPE, RMSNorm and grouped-query attention; LoRA, LoRMA, adapters, IA$^3$, prompts and distillation; BM25, chunk interaction, rank fusion, macro/micro F1 and BERTScore.\\
+Ideation / brainstorming at a high level & Yes & Discussion of long-document chunking, task heads and sparse--dense retrieval.\\
+Debugging small ancillary snippets & Yes & Explanation and correction of schema, CUDA-memory and recovery errors.\\
+Plotting / visualization code & Yes & Figures and tables derived from saved experiment records.\\
+Grammar / writing style of the report & Yes & Editing phrasing, notation and LaTeX presentation.\\
+Report structure / section wording & Yes & Drafting and organizing material within the supplied template.\\
+Designing the model architecture & Yes & Proposing and comparing backbone, task-head and adaptation choices.\\
+Hyperparameter search / tuning & Yes & Suggested training settings, stopping rules and validation procedures.\\
+Analysis of results / conclusions & Yes & Discussion and drafting of metric comparisons, failure analysis and limitations.\\
+Writing the core training / inference code & Yes & Assistance with training/inference notebooks, evaluation and recovery logic.\\
+Other (specify) & Yes & Repository documentation and final artifact packaging.\\
+\end{longtable}
+}
+
+\noindent\textbf{Q3.} Did you refer to sources other than lecture slides and an LLM?
+
+\noindent\textbf{Answer:} Yes. I used the official course specification, dataset, starter material and evaluation scripts, together with the architecture, adaptation, retrieval and metric papers cited in the bibliography. The implementation uses PyTorch, Hugging Face utilities, NumPy, SciPy and scikit-learn. Evaluation-model use is separate from task-model initialization.
+
+\clearpage
+\noindent\textbf{Q4.} Apart from LLM use, what was your contribution?
+
+\noindent\textbf{Answer:} I set the project goals and requested efficient, resumable training across seven phases. I supplied the Phase~1 recoveries, previous notebooks and saved artifacts. I configured Kaggle GPUs, the HF\_TOKEN secret and persistence. I ran notebooks and supplied screenshots and logs when errors occurred. I downloaded and maintained recovery archives. I used explanations of tokenization, attention, adaptation and retrieval to support my understanding. I requested comparisons of the saved results and checks of updated artifacts. Retrieval memory exhaustion showed the need for representative batch probes and recovery. A missing fifth retrieval submission after the session budget expired showed the distinction between partial training and a completed package. The table above records the model assistance used alongside these activities.

@@ -1,0 +1,33 @@
+\begin{abstract}
+This project explores how far a small, self-hosted legal NLP system can go under limited GPU compute. It covers seven tasks, from text continuation and entity extraction to summarization and prior-case retrieval. Four foundation models, with 52.2--82.0 million parameters, were trained from scratch on the official legal corpus and then adapted to the downstream tasks. The experiments compare full and partial tuning with low-rank methods, adapters, prompts and distillation. The main findings concern exact span boundaries, long-document coverage and the reliability of validation scores. Summarization reached an audit BERTScore F1 of 0.82624, while retrieval reached tuning micro F1@7 of 0.34367. Several more complex methods failed to improve on simpler alternatives. The report separates local measurements from official competition results and documents how training was resumed after interruptions.
+\end{abstract}
+
+\section{Competition Result}
+\noindent\textbf{Codabench username:} a\_240131\hfill\textbf{Roll number:} 240131
+
+\begin{table}[H]
+\centering\small
+\caption{Official Codabench scores, ranks and valid submission counts on 9 November 2026.}
+\label{tab:leaderboard}
+\begin{tabular}{clccc}
+\toprule
+Phase & Task & Primary score & Rank & Valid submissions\\
+\midrule
+1 & Legal LM pretraining & 0.8257 & 115 & 4\\
+2 & Legal NER & 0.5276 & 65 & 6\\
+3 & Rhetorical roles & 0.5058 & 59 & 6\\
+4 & Judgment prediction & 0.7553 & 43 & 6\\
+5 & Statute identification & 0.3777 & 62 & 6\\
+6 & Summarization & 0.8234 & 116 & 6\\
+7 & Prior-case retrieval & 0.3077 & 101 & 7\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textbf{Total valid Codabench submissions across all phases:} 41.\quad\textbf{Date recorded:} 9 November 2026.
+\medskip
+The competition required at least four distinct submissions in each phase. The recorded counts meet that minimum: four in Phase~1, six each in Phases~2--6 and seven in Phase~7, for a total of 41 valid submissions.
+
+The public code repository is
+\href{https://github.com/anirudh3810/cs781-capstone-legal-intelligence}{\texttt{anirudh3810/cs781-capstone-legal-intelligence}}.
+The repository contains the notebooks, source code, saved numerical evidence and instructions needed to run each phase. Section~\ref{sec:results} explains the local results and how they relate to the official scores.

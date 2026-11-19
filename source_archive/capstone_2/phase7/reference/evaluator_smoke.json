@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "synthetic_data_only": true,
+  "metric": {
+    "primary_metric_1": 0.3333333333333333,
+    "secondary_metric_1": 0.21428571428571427,
+    "secondary_metric_2": 0.75,
+    "tp": 3,
+    "fp": 11,
+    "fn": 1
+  },
+  "checked": [
+    "fixed-denominator F1",
+    "order invariance inside top seven",
+    "duplicate candidates",
+    "outside-pool candidates"
+  ]
+}

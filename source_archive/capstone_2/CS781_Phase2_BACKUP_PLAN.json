@@ -1,0 +1,1612 @@
+{
+  "source_root": "/kaggle/working/CS781_Capstone/phase2_improved",
+  "total_files": 395,
+  "total_raw_bytes": 11313328915,
+  "number_of_parts": 4,
+  "parts": [
+    {
+      "part": 1,
+      "raw_bytes": 2952789999,
+      "files": [
+        {
+          "path": "_phase1_archive_compat/phase1_submission02_recovery.zip",
+          "bytes": 228760085
+        },
+        {
+          "path": "method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv1_slot01/disk_cleanup.json",
+          "bytes": 345
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/checkpoint.latest.previous_known_good.pt",
+          "bytes": 985025389
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/inference_failures.json",
+          "bytes": 3
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/phase2_improved_final_slot01_submission01_recovery.zip",
+          "bytes": 1313612412
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/base_evidence.json",
+          "bytes": 2599
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/inference_failures.json",
+          "bytes": 3
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/phase2_improved_final_slot03_submission03_recovery.zip",
+          "bytes": 423598580
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/base_evidence.json",
+          "bytes": 2611
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/tokenizer/tokenizer.json",
+          "bytes": 1769656
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/inference_failures.json",
+          "bytes": 3
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "raw_bytes": 2888885308,
+      "files": [
+        {
+          "path": "cv_candidates/cv0_slot01.json",
+          "bytes": 516250
+        },
+        {
+          "path": "cv_candidates/cv0_slot03.json",
+          "bytes": 473086
+        },
+        {
+          "path": "cv_candidates/cv0_slot05.json",
+          "bytes": 525496
+        },
+        {
+          "path": "cv_candidates/cv1_slot01.json",
+          "bytes": 449498
+        },
+        {
+          "path": "cv_candidates/cv1_slot03.json",
+          "bytes": 385091
+        },
+        {
+          "path": "cv_candidates/cv1_slot05.json",
+          "bytes": 452374
+        },
+        {
+          "path": "cv_candidates/cv2_slot01.json",
+          "bytes": 447634
+        },
+        {
+          "path": "cv_candidates/cv2_slot03.json",
+          "bytes": 410448
+        },
+        {
+          "path": "cv_candidates/cv2_slot05.json",
+          "bytes": 446436
+        },
+        {
+          "path": "cv_folds.json",
+          "bytes": 1489
+        },
+        {
+          "path": "final_submissions/submission_01/submission.zip",
+          "bytes": 37435
+        },
+        {
+          "path": "final_submissions/submission_03/submission.zip",
+          "bytes": 27964
+        },
+        {
+          "path": "final_submissions/submission_05/submission.zip",
+          "bytes": 36598
+        },
+        {
+          "path": "improvement_status.json",
+          "bytes": 7366
+        },
+        {
+          "path": "method_source/phase2_method_01.py",
+          "bytes": 807
+        },
+        {
+          "path": "method_source/phase2_method_03.py",
+          "bytes": 789
+        },
+        {
+          "path": "method_source/phase2_method_05.py",
+          "bytes": 795
+        },
+        {
+          "path": "official_phase2/fold1-gold.json",
+          "bytes": 460581
+        },
+        {
+          "path": "official_phase2/fold1-text.json",
+          "bytes": 1106635
+        },
+        {
+          "path": "official_phase2/fold2-gold.json",
+          "bytes": 475489
+        },
+        {
+          "path": "official_phase2/fold2-text.json",
+          "bytes": 1124295
+        },
+        {
+          "path": "official_phase2/fold3-text.json",
+          "bytes": 1186648
+        },
+        {
+          "path": "official_phase2/labels.txt",
+          "bytes": 71
+        },
+        {
+          "path": "official_phase2_source.json",
+          "bytes": 1296
+        },
+        {
+          "path": "stages/cv0_slot01/cv_sealed.json",
+          "bytes": 1224
+        },
+        {
+          "path": "stages/cv0_slot01/disk_cleanup.json",
+          "bytes": 344
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/experiment_identity.json",
+          "bytes": 2128
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/gpu_smoke.json",
+          "bytes": 616
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/phase2_method_01.py",
+          "bytes": 807
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/recovery_receipt.json",
+          "bytes": 263
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/training.jsonl",
+          "bytes": 486641
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/training_result.json",
+          "bytes": 550
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000081.json",
+          "bytes": 2225
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000162.json",
+          "bytes": 2288
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000243.json",
+          "bytes": 2411
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000324.json",
+          "bytes": 2359
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000405.json",
+          "bytes": 2420
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000486.json",
+          "bytes": 2426
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000567.json",
+          "bytes": 2410
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000648.json",
+          "bytes": 2444
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000729.json",
+          "bytes": 2437
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000810.json",
+          "bytes": 2440
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000891.json",
+          "bytes": 2422
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0000972.json",
+          "bytes": 2440
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0001053.json",
+          "bytes": 2433
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0001134.json",
+          "bytes": 2427
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0001215.json",
+          "bytes": 2438
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/validation_step_0001296.json",
+          "bytes": 2440
+        },
+        {
+          "path": "stages/cv0_slot01/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv0_slot03/cv_sealed.json",
+          "bytes": 1226
+        },
+        {
+          "path": "stages/cv0_slot03/disk_cleanup.json",
+          "bytes": 344
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/experiment_identity.json",
+          "bytes": 2377
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/gpu_smoke.json",
+          "bytes": 615
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/phase2_method_03.py",
+          "bytes": 789
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/recovery_receipt.json",
+          "bytes": 262
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/training.jsonl",
+          "bytes": 610047
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/training_result.json",
+          "bytes": 549
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000081.json",
+          "bytes": 2027
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000162.json",
+          "bytes": 2213
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000243.json",
+          "bytes": 2209
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000324.json",
+          "bytes": 2274
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000405.json",
+          "bytes": 2297
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000486.json",
+          "bytes": 2319
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000567.json",
+          "bytes": 2336
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000648.json",
+          "bytes": 2443
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000729.json",
+          "bytes": 2368
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000810.json",
+          "bytes": 2388
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000891.json",
+          "bytes": 2423
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0000972.json",
+          "bytes": 2349
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001053.json",
+          "bytes": 2385
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001134.json",
+          "bytes": 2445
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001215.json",
+          "bytes": 2392
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001296.json",
+          "bytes": 2418
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001377.json",
+          "bytes": 2438
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001458.json",
+          "bytes": 2421
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001539.json",
+          "bytes": 2439
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/validation_step_0001620.json",
+          "bytes": 2421
+        },
+        {
+          "path": "stages/cv0_slot03/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv0_slot05/cv_sealed.json",
+          "bytes": 1224
+        },
+        {
+          "path": "stages/cv0_slot05/disk_cleanup.json",
+          "bytes": 344
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/experiment_identity.json",
+          "bytes": 2123
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/gpu_smoke.json",
+          "bytes": 618
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/phase2_method_05.py",
+          "bytes": 795
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/recovery_receipt.json",
+          "bytes": 262
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/selected_model.pt",
+          "bytes": 330733947
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/training.jsonl",
+          "bytes": 305024
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/training_result.json",
+          "bytes": 547
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000081.json",
+          "bytes": 2026
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000162.json",
+          "bytes": 2172
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000243.json",
+          "bytes": 2257
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000324.json",
+          "bytes": 2315
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000405.json",
+          "bytes": 2322
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000486.json",
+          "bytes": 2434
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000567.json",
+          "bytes": 2422
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000648.json",
+          "bytes": 2361
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000729.json",
+          "bytes": 2443
+        },
+        {
+          "path": "stages/cv0_slot05/experiments/submission_05/validation_step_0000810.json",
+          "bytes": 2435
+        },
+        {
+          "path": "stages/cv0_slot05/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv1_slot01/cv_sealed.json",
+          "bytes": 1224
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/experiment_identity.json",
+          "bytes": 2128
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/failure_events.jsonl",
+          "bytes": 216
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/gpu_smoke.json",
+          "bytes": 615
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/phase2_method_01.py",
+          "bytes": 807
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/recovery_receipt.json",
+          "bytes": 263
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/training.jsonl",
+          "bytes": 451747
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/training.uncommitted.after_150.1791331617.jsonl",
+          "bytes": 84152
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/training_result.json",
+          "bytes": 550
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000075.json",
+          "bytes": 2167
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000150.json",
+          "bytes": 2203
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000225.json",
+          "bytes": 2350
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000300.json",
+          "bytes": 2451
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000375.json",
+          "bytes": 2405
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000450.json",
+          "bytes": 2440
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000525.json",
+          "bytes": 2453
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000600.json",
+          "bytes": 2459
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000675.json",
+          "bytes": 2430
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000750.json",
+          "bytes": 2457
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000825.json",
+          "bytes": 2452
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000900.json",
+          "bytes": 2442
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0000975.json",
+          "bytes": 2440
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0001050.json",
+          "bytes": 2438
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0001125.json",
+          "bytes": 2462
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/validation_step_0001200.json",
+          "bytes": 2455
+        },
+        {
+          "path": "stages/cv1_slot01/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv1_slot03/cv_sealed.json",
+          "bytes": 1226
+        },
+        {
+          "path": "stages/cv1_slot03/disk_cleanup.json",
+          "bytes": 344
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/experiment_identity.json",
+          "bytes": 2377
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/gpu_smoke.json",
+          "bytes": 617
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/phase2_method_03.py",
+          "bytes": 789
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/recovery_receipt.json",
+          "bytes": 262
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/training.jsonl",
+          "bytes": 572155
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/training_result.json",
+          "bytes": 549
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000076.json",
+          "bytes": 2020
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000152.json",
+          "bytes": 2123
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000228.json",
+          "bytes": 2168
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000304.json",
+          "bytes": 2224
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000380.json",
+          "bytes": 2220
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000456.json",
+          "bytes": 2256
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000532.json",
+          "bytes": 2221
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000608.json",
+          "bytes": 2295
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000684.json",
+          "bytes": 2271
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000760.json",
+          "bytes": 2321
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000836.json",
+          "bytes": 2364
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000912.json",
+          "bytes": 2363
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0000988.json",
+          "bytes": 2366
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0001064.json",
+          "bytes": 2350
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0001140.json",
+          "bytes": 2463
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0001216.json",
+          "bytes": 2442
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0001292.json",
+          "bytes": 2450
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0001368.json",
+          "bytes": 2449
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0001444.json",
+          "bytes": 2467
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/validation_step_0001520.json",
+          "bytes": 2459
+        },
+        {
+          "path": "stages/cv1_slot03/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv1_slot05/cv_sealed.json",
+          "bytes": 1224
+        },
+        {
+          "path": "stages/cv1_slot05/disk_cleanup.json",
+          "bytes": 344
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/experiment_identity.json",
+          "bytes": 2123
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/gpu_smoke.json",
+          "bytes": 618
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/phase2_method_05.py",
+          "bytes": 795
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/recovery_receipt.json",
+          "bytes": 262
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/training.jsonl",
+          "bytes": 282477
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/training_result.json",
+          "bytes": 547
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000075.json",
+          "bytes": 2077
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000150.json",
+          "bytes": 2147
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000225.json",
+          "bytes": 2217
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000300.json",
+          "bytes": 2220
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000375.json",
+          "bytes": 2322
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000450.json",
+          "bytes": 2306
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000525.json",
+          "bytes": 2344
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000600.json",
+          "bytes": 2389
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000675.json",
+          "bytes": 2390
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/validation_step_0000750.json",
+          "bytes": 2400
+        },
+        {
+          "path": "stages/cv1_slot05/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv2_slot01/cv_sealed.json",
+          "bytes": 1224
+        },
+        {
+          "path": "stages/cv2_slot01/disk_cleanup.json",
+          "bytes": 345
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/experiment_identity.json",
+          "bytes": 2128
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/gpu_smoke.json",
+          "bytes": 616
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/phase2_method_01.py",
+          "bytes": 807
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/recovery_receipt.json",
+          "bytes": 263
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/training.jsonl",
+          "bytes": 492684
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/training_result.json",
+          "bytes": 550
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000082.json",
+          "bytes": 2119
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000164.json",
+          "bytes": 2310
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000246.json",
+          "bytes": 2342
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000328.json",
+          "bytes": 2391
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000410.json",
+          "bytes": 2405
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000492.json",
+          "bytes": 2426
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000574.json",
+          "bytes": 2437
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000656.json",
+          "bytes": 2437
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000738.json",
+          "bytes": 2438
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000820.json",
+          "bytes": 2439
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000902.json",
+          "bytes": 2410
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0000984.json",
+          "bytes": 2422
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0001066.json",
+          "bytes": 2396
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0001148.json",
+          "bytes": 2452
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0001230.json",
+          "bytes": 2450
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/validation_step_0001312.json",
+          "bytes": 2402
+        },
+        {
+          "path": "stages/cv2_slot01/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv2_slot03/cv_sealed.json",
+          "bytes": 1226
+        },
+        {
+          "path": "stages/cv2_slot03/disk_cleanup.json",
+          "bytes": 344
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/experiment_identity.json",
+          "bytes": 2377
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/gpu_smoke.json",
+          "bytes": 615
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/phase2_method_03.py",
+          "bytes": 789
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/recovery_receipt.json",
+          "bytes": 262
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/training.jsonl",
+          "bytes": 615813
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/training_result.json",
+          "bytes": 549
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000082.json",
+          "bytes": 1927
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000164.json",
+          "bytes": 2121
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000246.json",
+          "bytes": 2148
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000328.json",
+          "bytes": 2219
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000410.json",
+          "bytes": 2258
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000492.json",
+          "bytes": 2255
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000574.json",
+          "bytes": 2264
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000656.json",
+          "bytes": 2317
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000738.json",
+          "bytes": 2352
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000820.json",
+          "bytes": 2351
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000902.json",
+          "bytes": 2425
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0000984.json",
+          "bytes": 2454
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001066.json",
+          "bytes": 2385
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001148.json",
+          "bytes": 2443
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001230.json",
+          "bytes": 2384
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001312.json",
+          "bytes": 2407
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001394.json",
+          "bytes": 2449
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001476.json",
+          "bytes": 2380
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001558.json",
+          "bytes": 2422
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/validation_step_0001640.json",
+          "bytes": 2438
+        },
+        {
+          "path": "stages/cv2_slot03/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv2_slot05/cv_sealed.json",
+          "bytes": 1224
+        },
+        {
+          "path": "stages/cv2_slot05/disk_cleanup.json",
+          "bytes": 344
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/experiment_identity.json",
+          "bytes": 2123
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/gpu_smoke.json",
+          "bytes": 618
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/phase2_method_05.py",
+          "bytes": 795
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/recovery_receipt.json",
+          "bytes": 262
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/training.jsonl",
+          "bytes": 308743
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/training_result.json",
+          "bytes": 548
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000082.json",
+          "bytes": 2025
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000164.json",
+          "bytes": 2173
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000246.json",
+          "bytes": 2265
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000328.json",
+          "bytes": 2258
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000410.json",
+          "bytes": 2279
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000492.json",
+          "bytes": 2405
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000574.json",
+          "bytes": 2383
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000656.json",
+          "bytes": 2395
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000738.json",
+          "bytes": 2398
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/validation_step_0000820.json",
+          "bytes": 2385
+        },
+        {
+          "path": "stages/cv2_slot05/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/checkpoint.latest.pt",
+          "bytes": 985025389
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/experiment_identity.json",
+          "bytes": 2130
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/gpu_smoke.json",
+          "bytes": 617
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/inference_attempts.jsonl",
+          "bytes": 1712
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/phase2_method_01.py",
+          "bytes": 807
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/prediction.json",
+          "bytes": 263289
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/predictions.improved.partial.json",
+          "bytes": 263289
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/predictions.improved.provenance.json",
+          "bytes": 529
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/recovery_receipt.json",
+          "bytes": 267
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/submission.zip",
+          "bytes": 37435
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/submission_validation.json",
+          "bytes": 964
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/training.jsonl",
+          "bytes": 665127
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/training_result.json",
+          "bytes": 739
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000118.json",
+          "bytes": 2011
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000236.json",
+          "bytes": 2043
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000354.json",
+          "bytes": 2046
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000472.json",
+          "bytes": 2072
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000590.json",
+          "bytes": 2087
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000708.json",
+          "bytes": 2052
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000826.json",
+          "bytes": 2066
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0000944.json",
+          "bytes": 2053
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0001062.json",
+          "bytes": 1995
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0001180.json",
+          "bytes": 2009
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0001298.json",
+          "bytes": 2006
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0001416.json",
+          "bytes": 1977
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0001534.json",
+          "bytes": 1976
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0001652.json",
+          "bytes": 1991
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/validation_step_0001770.json",
+          "bytes": 2021
+        },
+        {
+          "path": "stages/final_slot01/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/model/course_bpe.py",
+          "bytes": 5769
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/model/decoder_lm.py",
+          "bytes": 10048
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/tokenizer/course_bpe-merges.txt",
+          "bytes": 281795
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/tokenizer/course_bpe-vocab.json",
+          "bytes": 495795
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/tokenizer/tokenizer.json",
+          "bytes": 2241230
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/tokenizer/tokenizer_config.json",
+          "bytes": 340
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/tokenizer/tokenizer_metadata.json",
+          "bytes": 1247
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/checkpoint.latest.pt",
+          "bytes": 213038291
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/experiment_identity.json",
+          "bytes": 2379
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/gpu_smoke.json",
+          "bytes": 617
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/inference_attempts.jsonl",
+          "bytes": 1712
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/phase2_method_03.py",
+          "bytes": 789
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/prediction.json",
+          "bytes": 193451
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/predictions.improved.partial.json",
+          "bytes": 193451
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/predictions.improved.provenance.json",
+          "bytes": 530
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/recovery_receipt.json",
+          "bytes": 266
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/submission.zip",
+          "bytes": 27964
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/submission_validation.json",
+          "bytes": 965
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/training.jsonl",
+          "bytes": 813326
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/training_result.json",
+          "bytes": 738
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000120.json",
+          "bytes": 1914
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000240.json",
+          "bytes": 1929
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000360.json",
+          "bytes": 1992
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000480.json",
+          "bytes": 1961
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000600.json",
+          "bytes": 2057
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000720.json",
+          "bytes": 2089
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000840.json",
+          "bytes": 2101
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0000960.json",
+          "bytes": 2038
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001080.json",
+          "bytes": 2026
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001200.json",
+          "bytes": 2052
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001320.json",
+          "bytes": 2097
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001440.json",
+          "bytes": 2097
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001560.json",
+          "bytes": 2041
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001680.json",
+          "bytes": 2083
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001800.json",
+          "bytes": 2101
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0001920.json",
+          "bytes": 2028
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0002040.json",
+          "bytes": 2100
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/validation_step_0002160.json",
+          "bytes": 2068
+        },
+        {
+          "path": "stages/final_slot03/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/model/course_bpe.py",
+          "bytes": 5769
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/model/prefix_hybrid_lm.py",
+          "bytes": 18235
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/tokenizer/course_bpe-merges.txt",
+          "bytes": 230859
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/tokenizer/course_bpe-vocab.json",
+          "bytes": 396508
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/tokenizer/tokenizer_config.json",
+          "bytes": 340
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/tokenizer/tokenizer_metadata.json",
+          "bytes": 1239
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/checkpoint.latest.previous_known_good.pt",
+          "bytes": 336062373
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/checkpoint.latest.pt",
+          "bytes": 336062373
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/experiment_identity.json",
+          "bytes": 2126
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/gpu_smoke.json",
+          "bytes": 618
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/inference_attempts.jsonl",
+          "bytes": 1712
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/phase2_improved_final_slot05_submission05_recovery.zip",
+          "bytes": 667006598
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/phase2_method_05.py",
+          "bytes": 795
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/prediction.json",
+          "bytes": 256049
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/predictions.improved.partial.json",
+          "bytes": 256049
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/predictions.improved.provenance.json",
+          "bytes": 532
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/recovery_receipt.json",
+          "bytes": 266
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/submission.zip",
+          "bytes": 36598
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/submission_validation.json",
+          "bytes": 967
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/training.jsonl",
+          "bytes": 444606
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/training_result.json",
+          "bytes": 741
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000118.json",
+          "bytes": 1975
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000236.json",
+          "bytes": 1937
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000354.json",
+          "bytes": 1997
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000472.json",
+          "bytes": 1999
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000590.json",
+          "bytes": 2028
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000708.json",
+          "bytes": 2011
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000826.json",
+          "bytes": 2069
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0000944.json",
+          "bytes": 1999
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0001062.json",
+          "bytes": 2073
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/validation_step_0001180.json",
+          "bytes": 2058
+        },
+        {
+          "path": "stages/final_slot05/method_source/phase2_method_common.py",
+          "bytes": 18313
+        },
+        {
+          "path": "submission_01_cv_calibration.json",
+          "bytes": 774
+        },
+        {
+          "path": "submission_01_improved.zip",
+          "bytes": 37435
+        },
+        {
+          "path": "submission_03_cv_calibration.json",
+          "bytes": 774
+        },
+        {
+          "path": "submission_03_improved.zip",
+          "bytes": 27964
+        },
+        {
+          "path": "submission_05_cv_calibration.json",
+          "bytes": 778
+        },
+        {
+          "path": "submission_05_improved.zip",
+          "bytes": 36598
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "raw_bytes": 2941887380,
+      "files": [
+        {
+          "path": "_phase1_archive_compat/phase1_submission01_recovery.zip",
+          "bytes": 305607156
+        },
+        {
+          "path": "stages/cv0_slot01/experiments/submission_01/selected_model.pt",
+          "bytes": 328336461
+        },
+        {
+          "path": "stages/cv1_slot01/experiments/submission_01/selected_model.pt",
+          "bytes": 328336461
+        },
+        {
+          "path": "stages/cv1_slot05/experiments/submission_05/selected_model.pt",
+          "bytes": 330733947
+        },
+        {
+          "path": "stages/cv2_slot01/experiments/submission_01/selected_model.pt",
+          "bytes": 328336461
+        },
+        {
+          "path": "stages/cv2_slot05/experiments/submission_05/selected_model.pt",
+          "bytes": 330733947
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/selected_model.previous_known_good.pt",
+          "bytes": 328336461
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/selected_model.previous_known_good.pt",
+          "bytes": 330733947
+        },
+        {
+          "path": "stages/final_slot05/experiments/submission_05/selected_model.pt",
+          "bytes": 330732539
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "raw_bytes": 2529766228,
+      "files": [
+        {
+          "path": "_phase1_archive_compat/phase1_submission03_recovery.zip",
+          "bytes": 194493565
+        },
+        {
+          "path": "_phase1_archive_compat/phase1_submission04_recovery.zip",
+          "bytes": 205258438
+        },
+        {
+          "path": "stages/cv0_slot03/experiments/submission_03/selected_model.pt",
+          "bytes": 210320937
+        },
+        {
+          "path": "stages/cv1_slot03/experiments/submission_03/selected_model.pt",
+          "bytes": 210320937
+        },
+        {
+          "path": "stages/cv2_slot03/experiments/submission_03/selected_model.pt",
+          "bytes": 210320937
+        },
+        {
+          "path": "stages/final_slot01/experiments/submission_01/selected_model.pt",
+          "bytes": 328335501
+        },
+        {
+          "path": "stages/final_slot01/phase1_bases/01/checkpoints/selected_model.pt",
+          "bytes": 328076743
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/checkpoint.latest.previous_known_good.pt",
+          "bytes": 213038227
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/selected_model.previous_known_good.pt",
+          "bytes": 210320937
+        },
+        {
+          "path": "stages/final_slot03/experiments/submission_03/selected_model.pt",
+          "bytes": 210314281
+        },
+        {
+          "path": "stages/final_slot03/phase1_bases/03/checkpoints/selected_model.pt",
+          "bytes": 208965725
+        }
+      ]
+    }
+  ]
+}

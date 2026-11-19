@@ -1,0 +1,32 @@
+\section{Experiments and Implementation Details}
+\subsection{Compute and training protocol}
+The runs were carried out on Kaggle using AdamW, mixed precision, gradient clipping, warmup and a decaying learning rate. Earlier experiments use two-GPU data parallelism; later classification and summarization use distributed jobs. Retrieval runs two independent experiments, one on each physical GPU. Inside a worker, \texttt{cuda:0} means its own visible device.
+
+\begin{table}[H]
+\centering\small
+\caption{Settings of the selected local implementations. Epoch numbers denote selected checkpoints, not necessarily total executed passes. Batch settings are microbatch $\times$ accumulation; GPU world size is additional where applicable.}
+\label{tab:hparams}
+\begin{tabularx}{\textwidth}{clYYY}
+\toprule
+Phase & Selected variant & Input budget & Learning rate / batch & Selected training\\
+\midrule
+1 & B04 & 512 source +256 target & $2.5\!\times\!10^{-4}$; global 8$\times$4 & 15,000 steps\\
+2 & V3 hybrid / B03 & 384/window, stride 288 & New pair $1.2\!\times\!10^{-4}$; batch 16 & Folds 24/18/24\\
+3 & One-submission blend & 384/sentence in new branches & Backbone $1.3$--$1.5\!\times\!10^{-5}$; accum 4 & Dev-selected blend\\
+4 & Partial / B03 & $8\times640$ chunks & $1.4\!\times\!10^{-5}$; case 1$\times$4 & Epoch 3\\
+5 & Partial / B03 & $4\times512$ fit;12 infer & $1.4\!\times\!10^{-5}$; case 2$\times$2 & Epoch 7\\
+6 & Adaptive rank / B03 & 760 source + controls; 480 target & $1.4\!\times\!10^{-4}$; probed batch$\times$4 & Epoch 3\\
+7 & Full / B03 & $6\times384$ chunks & Backbone $2\!\times\!10^{-5}$, head $2\!\times\!10^{-4}$ & Epoch 2\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Base~04 pretraining uses dropout 0.05, weight decay 0.1 and 500 warmup steps. Task heads generally use dropout 0.1--0.25 and weight decay 0.01; the exact values are in the code. NER V3 uses float32 with activation checkpointing. Later jobs use fp16 with a scaler on T4-class GPUs, or bf16 where supported. Retrieval probes long batches before training and reduces the batch after an OOM, preserving both the effective batch size and the saved position.
+
+Recovering progress was important because a full suite could outlast one session. Checkpoints store trainable weights, optimizer, scaler, RNG and progress. Retrieval saves about every five minutes and after 18-minute segments; summarization saves about every ten minutes and after segments. The parent waits for workers to exit before replacing the recovery ZIP. Partial vectors, predictions and teacher outputs can also resume. The 8.5-hour retrieval guard stopped the supplied run during slot~05's fifth pass without marking it complete. Base~04 pretraining took 6.62 hours and the V3 span run 2.14 hours in their saved records; these timings do not apply to every configuration.
+
+\subsection{Local evaluation}
+The evaluation split matters as much as the displayed score. NER uses document folds, and role prediction reports both fixed thirteen-label and reference-supported macro F1. Judgment validation groups related cases and texts, although its outer folds are missing. Statute fitting/inner/holdout splits contain 31,994/4,311/6,445 rows. Summarization uses 6,324/352/352 fit/tune/audit cases. Retrieval divides dev into 83 tuning and 35 audit queries, but the supplied archive has no completed final audit.
+
+\subsection{Ablations and controlled comparisons}
+Some comparisons isolate a single change. Role-prediction decoders use the same logits, while the retrieval gold-only and KD students share initialization, schedule and matched steps for two passes. Comparisons across architectures also change capacity and adaptation, so they cannot explain the effect of one factor alone. There is no scratch-versus-transfer control that establishes a measured transfer gain.

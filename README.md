@@ -182,3 +182,9 @@ The official Phase 7 evaluator is preserved under `phase7/reference/`, with sour
 ## References
 
 The project uses the official course specification, starter/evaluation material and lecture slides, together with the following method references: [Transformer](https://arxiv.org/abs/1706.03762), [RoPE](https://arxiv.org/abs/2104.09864), [RMSNorm](https://arxiv.org/abs/1910.07467), [GQA](https://arxiv.org/abs/2305.13245), [LoRA](https://arxiv.org/abs/2106.09685), [AdaLoRA](https://arxiv.org/abs/2303.10512), [LoRMA](https://aclanthology.org/2025.findings-acl.527/), [IA³](https://arxiv.org/abs/2205.05638), [adapters](https://arxiv.org/abs/1902.00751), [prompt tuning](https://arxiv.org/abs/2104.08691), [distillation](https://arxiv.org/abs/1503.02531), [BERTScore](https://arxiv.org/abs/1904.09675), [ROUGE](https://aclanthology.org/W04-1013/), and [reciprocal rank fusion](https://research.google/pubs/reciprocal-rank-fusion-outperforms-condorcet-and-individual-rank-learning-methods/).
+
+## Report, archives and assignments
+
+Read the [final project report](report/CS781-CP-Anirudh-Bankhede-240131-report.pdf), rebuild it from the [LaTeX sources](report/README.md), or browse [additional source snapshots](source_archive/). The [coursework release](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/tag/coursework-2026-11-19) contains the report-and-code submission ZIP and small experiment/submission archives. [Publication notes](PUBLICATION_NOTES.md) describe the completeness review and files kept private.
+
+Assignments 1-6 are in the separate [cs781-assignments repository](https://github.com/anirudh3810/cs781-assignments).

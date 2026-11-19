@@ -1,0 +1,32 @@
+\section{Introduction and Problem Description}
+The aim of this project was to build a legal NLP system that could run with compact models and limited compute. Legal documents made this difficult in several ways: they are long, repeat procedural details and often place decisive information among citations and arguments. A self-hosted setup also makes the origin of the data and model weights easier to track.
+
+The seven phases address different parts of this problem. Phase~1 generates a 128-word continuation from a legal prompt and uses BERTScore F1. Phase~2 extracts exact character spans for twelve entity types, scored by strict macro F1. Phase~3 labels each supplied sentence with its rhetorical role. Phases~4 and~5 predict a binary judgment outcome and a set of statute IDs respectively; both use macro F1. Phase~6 generates summaries, evaluated with BERTScore and ROUGE. Phase~7 retrieves exactly seven prior cases per query and uses micro F1@7.
+
+The foundation models had to stay within 50M--300M parameters and be trained from scratch on the official data. These constraints shaped the experiments: how much context to retain, where to adapt the backbone, and when further training was worth its cost. Each downstream task starts from Phase~1 independently. Building a deployed application or feeding predictions from one phase into the next was outside the scope of the project.
+
+\section{Data Analysis and Preprocessing}
+\subsection{Sources and official splits}
+All training text comes from the official course release~\cite{course}. The foundation corpus contains Acts, High Court, Supreme Court and Tribunal documents; later phases use their own task-specific files. Test labels were excluded from fitting and model selection. Table~\ref{tab:data} lists the loaded splits. For NER, the two public labeled files were combined for document-fold experiments. For summarization, two of 7,030 rows had no reference summary and were skipped, leaving 7,028 labeled cases.
+
+\begin{table}[H]
+\centering\small
+\caption{Task data recovered from saved audits. A dash denotes an unlabeled or inapplicable split. The Phase~7 candidate pools are split-specific.}
+\label{tab:data}
+\begin{tabular}{clrrr}
+\toprule
+Phase & Unit & Train & Dev & Test\\
+\midrule
+2 & Documents & 35 & 35 & 35\\
+3 & Documents / sentences & 80 / 16,845 & 10 / 2,142 & 10 / 2,197\\
+4 & Case rows & 37,387 & 3,505 & 1,517\\
+5 & Case rows & 42,750 & 10,181 & 13,019\\
+6 & Labeled cases & 7,028 & -- & 100\\
+7 & Queries & 827 & 118 & 237\\
+7 & Candidate cases & 4,320 & 1,023 & 1,727\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Corpus statistics that actually informed design}
+Bases~02 and~04 use 39,921 deduplicated documents: 9,981 Acts, 9,952 High Court, 9,991 Supreme Court and 9,997 Tribunal documents. Their word totals are very different: 62.19M, 5.66M, 37.65M and 11.28M respectively. Equal document sampling therefore does not give equal token exposure. Base~03 uses 31,946 documents, while base~01's larger corpus audit contains 3,356,594. The tokenizer audit covers only the first 256 training documents, all Acts, so it cannot describe token usage across the whole corpus.

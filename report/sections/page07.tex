@@ -1,0 +1,47 @@
+\section{Results}\label{sec:results}
+\begin{table}[H]
+\centering\small
+\caption{Local variant scores. P2: original local strict macro F1; P3: original fixed all-13 dev macro F1; P4: selected dev macro F1; P5: grouped holdout macro F1; P6: best selected tuning-sample BERTScore F1; P7: selected tuning micro F1@7. Columns are different tasks and cannot be averaged.}
+\label{tab:variants}
+\begin{tabular}{crrrrrr}
+\toprule
+Slot & P2 & P3 & P4 & P5 & P6 & P7\\
+\midrule
+01 & .30751 & .41502 & .72970 & .37934 & .82192 & .34367\\
+02 & .07258 & .42260 & .75510 & .37430 & .82534 & .33127\\
+03 & .30414 & .35083 & .66526 & .34332 & .81977 & .32064\\
+04 & .20180 & .42069 & .61235 & .32787 & .82285 & .32772\\
+05 & .26880 & .41110 & .74465 & .34339 & .82240 & .32595$^{*}$\\
+06 & .13555 & .41130 & .68770 & .37650 & .82395 & .33127\\
+\bottomrule
+\end{tabular}
+\end{table}
+\noindent\small $^{*}$Slot05 is its fourth evaluated pass, before completion of pass 5 in the supplied recovery. A later standalone prediction ZIP exists, but its updated report is unavailable. All six Phase~5 holdout results are now available.\normalsize
+
+\begin{table}[H]
+\centering\small
+\caption{Later experiments and validation scope. All values are local; the official competition table is separate.}
+\label{tab:later}
+\begin{tabularx}{\textwidth}{lXr}
+\toprule
+Task & Variant / measurement & F1\\
+\midrule
+NER & V2 selected OOF baseline & .45297\\
+NER & V3 raw, threshold calibrated & .47536\\
+NER & V3 reranker, calibrated & .45673\\
+NER & Label-source hybrid, selected OOF & .48583\\
+Roles & One-submission blend, dev supported / all13 & .54942 / .46489\\
+Roles & HighF1 raw, document OOF / dev supported & .42415 / .53335\\
+Statutes & Slot01 partial, holdout / dev macro & .37934 / .38557\\
+Statutes & Slot06 distill (last sub.), holdout / dev macro & .37650 / .38002\\
+Summary & Slot02, full tuning BERTScore & .82530\\
+Summary & Slot02, untouched audit BERTScore & .82624\\
+Retrieval & Gold-only / KD, matched pass 1 & .30647 / .31001\\
+Retrieval & Gold-only / KD, matched pass 2 & .32772 / .32064\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The selected NER hybrid improves OOF F1 by 0.03286 over V2, but checkpoint, source and threshold choices reuse those labels. Reranking V3 actually lowers calibrated F1 by 0.01863. The role blend also looks stronger on dev without establishing better performance on new documents. In statutes, slot~01 leads holdout macro F1 at 0.37934, with micro F1 0.48132, subset accuracy 0.04143 and selected dev macro F1 0.38557. Slot~06 reaches 0.37650 holdout macro F1, 0.47888 micro F1 and 0.38002 dev macro F1 with 15.08M trainable parameters. It gives higher subset accuracy, 0.04515, and predicts 4.80 rather than 4.92 labels per case, using 32.0\% fewer trainable parameters. The verified official scores are 0.8257, 0.5276, 0.5058, 0.7553, 0.3777, 0.8234 and 0.3077 for Phases~1--7 respectively (Table~\ref{tab:leaderboard}), across 41 recorded valid submissions.
+
+The summarization audit gives BERTScore precision 0.83517 and recall 0.81757, with ROUGE-1 F1 0.40038 and ROUGE-L F1 0.21157. Retrieval slot~01 finds 194 relevant pairs among 83 tuning queries: precision $194/581=0.33391$, recall $194/548=0.35401$ and F1 $388/1129=0.34367$. IA$^3$ trains 0.151M parameters and scores 0.32772, compared with 52.281M parameters and 0.34367 for full tuning. The difference is useful when considering compute, but the backbones differ, so it does not isolate parameter count as the cause.
