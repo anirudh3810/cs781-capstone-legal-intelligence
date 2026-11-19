@@ -49,7 +49,7 @@ SHA-256 checksums are recorded in `evidence/release_artifacts.json`. Restricted 
 | `PHASE1_SUBMISSION4.zip` | 0.23 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/PHASE1_SUBMISSION4.zip) |
 | `phase4_submission3.zip` | 0.01 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/phase4_submission3.zip) |
 | `phase4_submission5.zip` | 0.01 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/phase4_submission5.zip) |
-| `prediction_result (1).zip` | 0.00 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/prediction_result%20%281%29.zip) |
+| `prediction_result (1).zip` | 0.00 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/prediction_result.1.zip) |
 | `prediction_result.zip` | 0.00 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/prediction_result.zip) |
 | `submission_01.zip` | 0.05 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/submission_01.zip) |
 | `submission_01_improved.zip` | 0.04 | [Download](https://github.com/anirudh3810/cs781-capstone-legal-intelligence/releases/download/coursework-2026-11-19/submission_01_improved.zip) |
